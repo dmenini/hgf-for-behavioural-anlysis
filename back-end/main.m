@@ -1,4 +1,4 @@
-addpath 'HGF'
+addpath '../HGF'
 close all
 
 N = 620;
@@ -8,7 +8,7 @@ zeta = 5;
 while 1
     try
         gen = generative_model(P, N, 0);
-        % gen = load('input.mat').gen;
+        % gen = load('input_1.mat').gen;
 
         par = [NaN P.mu_2 P.mu_3 NaN P.sa_2 P.sa_3 NaN 0 0 1 P.ka_2 NaN P.om_2 P.om_3];
         sim = tapas_simModel(gen.u,'tapas_hgf_binary',par,'tapas_unitsq_sgm',zeta);

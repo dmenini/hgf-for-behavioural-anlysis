@@ -10,4 +10,18 @@ In base all'immagine di uno scaffale che ti compare, immagina di trovare gli sca
 Ti chiediamo di indovinare se in un altro supermercato lì nei dintorni si presenti o meno la stessa situazione per questo prodotto.
 Pronti? Via!
 
-Tieni duro, hai quasi finito! Ti chiediamo di rispondere a qualche veloce domanda prima di salutarcis. 
+Tieni duro, hai quasi finito! Ti chiediamo di rispondere a qualche veloce domanda prima di salutarci. 
+
+
+
+
+
+TODO:
+
+- Finire database
+- Bloccare la visuale
+- Rendere responsive
+- Supportare più test
+- Impostare questionario
+
+- Riconoscere database output
