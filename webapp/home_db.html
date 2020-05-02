@@ -1,0 +1,43 @@
+<head>
+</head>
+
+<body style="">
+   
+
+<script type="text/javascript" src="parse.min.js">
+    
+function saveToDB(score, sequence){
+
+    Parse.initialize("thO29uAuOVPOFTw2xF8PE9IpIluwfs6XBBFCNIXx", "5NtROyPDahFyupOZJb9frRP45GjhycIEGY1mbVqL");
+    //javascriptKey is required only if you have it on server.
+    Parse.serverURL = 'https://parseapi.back4app.com/'
+    Parse.databaseURI =  'mongodb://admin:hS0XB6pfYlYRmMvlrs0hWBfI@mongodb.back4app.com:27017/9025c04a33724856ae1efe4f196ee2ec?ssl=true'
+    Parse.restAPIKey = 'nofNfqhpO76e7YeQt7ZREKstAqMI1uFpZ7XOH9Cn'
+    //Parse.masterKey = 'v303r8cvzKbG8Oq4MXmB5eoAh7JlFmDdjYZ9dBj6'
+
+    const GameScore = Parse.Object.extend("GameScore");
+    const gameScore = new GameScore();
+
+    gameScore.set("score", score);
+    gameScore.set("playerName", sequence);
+    gameScore.set("cheatMode", false);
+
+
+    gameScore.save()
+    .then((gameScore) => {
+      // Execute any logic that should take place after the object is saved.
+      alert('New object created with objectId: ' + gameScore.id);
+    }, (error) => {
+      // Execute any logic that should take place if the save fails.
+      // error is a Parse.Error with an error code and message.
+      alert('Failed to create new object, with error code: ' + error.message);
+    });
+    
+ }
+
+</script>
+
+hi
+
+</body>
+
