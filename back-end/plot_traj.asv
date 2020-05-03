@@ -1,4 +1,4 @@
-function plot_ex2(gen)
+function plot_traj(gen)
 
 % Set up display
 scrsz = get(0,'screenSize');
@@ -11,25 +11,38 @@ figure(...
 ts = numel(gen.u);
 ts = 1:ts;
 
-subplot(4,1,1);
+subplot(5,1,1);
 plot(ts, gen.x_3, 'b', 'LineWidth', 2);
 xlim([1 ts(end)]);
-title('Trajectory of x_{3}', 'FontWeight', 'bold');
+title('Hidden state x_{3}', 'FontWeight', 'bold');
 ylabel('x_{3}');
 
-subplot(4,1,2);
+subplot(5,1,2);
 plot(ts, gen.x_2, 'b', 'LineWidth', 2); % prior
 xlim([1 ts(end)]);
-title('Trajectory of x_{2}', 'FontWeight', 'bold');
+title('Condition probability in logit of height given eyes', 'FontWeight', 'bold');
 ylabel('x_{2}');
 
-subplot(4,1,3);
+subplot(5,1,3);
 plot(ts, gen.s, 'b', 'LineWidth', 2);
 xlim([1 ts(end)]);
 title('Probability of height given eyes', 'FontWeight', 'bold');
 ylabel('s(x_{2})');
 
-subplot(4,1,4);
+pb = [0.9 0.1 0.5 0.9 0.1]';
+pb = repmat(pb,1,numel(gen.u)/numel(pb))';
+pb = reshape(pb,numel(gen.u),1);
+
+subplot(5,1,4);
+plot(ts, gen.x_1, 'b', 'LineWidth', 2);
+hold on
+plot(ts, pb, 'k', 'LineWidth', 1);
+hold off
+xlim([1 ts(end)]);
+title('Trajectory of x_{1}', 'FontWeight', 'bold');
+ylabel('x_{1}');
+
+subplot(5,1,5);
 plot(ts, gen.u, '.', 'Color', [0 0.6 0]);
 hold on
 if gen.cues == 1
