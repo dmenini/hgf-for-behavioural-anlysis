@@ -8,5 +8,6 @@ function users = create_users_struct(file_name_json)
         users(i).virus_test = database_data.results(i).test2;
         users(i).anxiety_test = database_data.results(i).test3;
         users(i).anxiety_test_result = sum(users(i).anxiety_test);
+        users(i).anxiety_test_result = users(i).anxiety_test_result >= 30; %0 = no anxiety, 1 = anxiety
     end
 end 
