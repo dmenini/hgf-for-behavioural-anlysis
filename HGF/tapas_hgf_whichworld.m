@@ -1,4 +1,4 @@
-function [traj, infStates] = tapas_hgf_whichworld(r, p, varargin)
+ffunction [traj, infStates] = tapas_hgf_whichworld(r, p, varargin)
 % Calculates the trajectories of the agent's representations under the HGF
 %
 % This function can be called in two ways:
