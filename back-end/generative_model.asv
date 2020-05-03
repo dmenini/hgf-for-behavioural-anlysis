@@ -6,11 +6,13 @@ function gen = generative_model(P,N,SAVE)
     while const
         rng shuffle    % shuffle the seed of randn, otherwise always same results
 
-        u = zeros(N,1);
         s = zeros(N,1);
         x_1 = zeros(N,1);
         x_2 = zeros(N,1);
         x_3 = zeros(N,1);
+        p_u_given_cue = [0.9 0.1 0.5 0.9 0.1]';
+        p_u_given_cue = repmat(p_u_given_cue,1,N/numel(p_u_given_cue))';
+        p_u_given_cue = reshape(p_u_given_cue, N,1);
 
         x_2(1) = abs(CN(P.mu_2, P.sa_2, 1, 1));     % initial value of perceptual state (mu_2, sigma_2)
         x_3(1) = abs(CN(P.mu_3, P.sa_3, 1, 1));     % initial value of perceptual state (mu_3, sigma_3)
@@ -23,23 +25,22 @@ function gen = generative_model(P,N,SAVE)
             x_3(i) = CN(x_3(i-1), exp(P.om_3), 1, 1);
             x_2(i) = CN(x_2(i-1), exp(P.ka_2 * x_3(i) + P.om_2), 1, 1);
             s(i) = 1 / (1 + exp(-x_2(i)));
+            x_1(i) = s(i).^p_u_given_cue(i) * (1-s(i)).^(1-p_u_given_cue(i));
         end
-        
+
         % Ground truth of the user belief (height or next supermarket)
-        u = rand(N,1);
-        bern = s.^cues .* (1-s).^(1-cues);
-        u = round(bern);
+        u = round(x_1);
         
         % Verify that u is sufficiently varied
         M = 5;
         assert(mod(N,M) == 0);
         t = reshape(s,N/M,M);
-        if all(var(t) > 0.02)
+        if all(var(t) > 0.05)
             const = 0;
         end
     end
     
-    gen = struct('x_3',x_3, 'x_2',x_2, 'cues',cues, 's',s, 'u',u);
+    gen = struct('x_3',x_3, 'x_2',x_2, 'x_1',x_1,'cues',cues, 's',s, 'u',u);
     
     if SAVE
         save('input.mat','gen')
