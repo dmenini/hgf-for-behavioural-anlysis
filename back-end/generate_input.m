@@ -33,14 +33,14 @@ while run
     x_3(1) = abs(normal(P.mu_3, P.sa_3));     % initial value of perceptual state 3
 
     % Generate random inputs for the user (e.g. eyes or sanitizer)
-    cues = round(randn(N,1));
+    cues = round(rand(N,1));
 
     % Generative model
     for i = 2:N
         x_3(i) = normal(x_3(i-1), exp(P.om_3));
         x_2(i) = normal(x_2(i-1), exp(P.ka_2 * x_3(i) + P.om_2));
         s(i) = 1 / (1 + exp(-x_2(i)));
-        x_1(i) = s(i).^p_u_given_cue(i) * (1-s(i)).^(1-p_u_given_cue(i));
+        x_1(i) = bern(s(i),p_u_given_cue(i));
     end
 
     % Ground truth of the user belief (e.g. height or next supermarket)
@@ -74,7 +74,6 @@ end
 
 plot_traj(gen)
 sgtitle('Generative model output', 'FontWeight', 'bold')
-
 plot_traj(gen_ds)
 sgtitle('Generative model output (undersampled)', 'FontWeight', 'bold')
 
@@ -83,8 +82,8 @@ SAVE = input('Save generated inputs? (1|0)  ');
 if SAVE
     save('input.mat','gen')
     save('input_us.mat','gen_ds')
-    csvwrite('input.csv', 'input.mat');
-    csvwrite('input_us.csv', 'input_us.mat');
+    csvwrite('input.csv', gen);
+    csvwrite('input_us.csv', gen_us);
     fprintf('Variables saved.\n')
 else
     fprintf('Variables not saved.\n')
