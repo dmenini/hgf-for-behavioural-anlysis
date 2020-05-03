@@ -4,7 +4,8 @@ close all
 normal = @(m,v) m + sqrt(v).*(randn(1, 1));
 bern = @(p,x) p.^x .* (1-p).^(1-x);
 
-N = 600;
+N = 300;
+trials = 50;
 P = struct(...
         'mu_2', 0,...       % initial mean of x_2
         'mu_3', 1,...       % initial mean of x_3
@@ -69,7 +70,7 @@ gen_ds = gen;
 
 fn = fieldnames(gen_ds);
 for i = 1:numel(fn)
-    gen_ds.(fn{i}) = downsample(gen.(fn{i}), N/100);
+    gen_ds.(fn{i}) = downsample(gen.(fn{i}), N/trials);
 end
 
 plot_traj(gen)
