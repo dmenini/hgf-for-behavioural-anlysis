@@ -45,11 +45,8 @@ while run
     % Ground truth of the user belief (e.g. height or next supermarket)
     u = x_1 > rand(N,1);
     for i = 1:numel(u)
-        if u(i) == 0 
-            u(i) = cues(i);
-        elseif u(i) == 1
-            u(i) = 1 - cues(i);
-        end
+        if u(i)
+        u(i) = () & cues;
     end
     if sum(abs(x_1 - p_u_given_cue)) < 0.2*N
         run = 0;
