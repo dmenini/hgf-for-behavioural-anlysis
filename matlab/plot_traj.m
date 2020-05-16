@@ -1,4 +1,4 @@
-function plot_traj(gen)
+function plot_traj(gen, pb)
 
 % Set up display
 scrsz = get(0,'screenSize');
@@ -28,10 +28,6 @@ plot(ts, gen.s, 'b', 'LineWidth', 2);
 xlim([1 ts(end)]);
 title('Condition probability of height given eyes', 'FontWeight', 'bold');
 ylabel('s(x_{2})');
-
-pb = [0.9 0.1 0.5 0.9 0.1]';
-pb = repmat(pb,1,numel(gen.u)/numel(pb))';
-pb = reshape(pb,numel(gen.u),1);
 
 subplot(5,1,4);
 plot(ts, gen.x_1, 'b', 'LineWidth', 2);
