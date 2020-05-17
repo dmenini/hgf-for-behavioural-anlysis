@@ -5,7 +5,7 @@ normal = @(m,v) m + sqrt(v).*(randn(1, 1));
 bern = @(p,x) p.^x .* (1-p).^(1-x);
 
 N = 120;
-trials = 60;
+
 P = struct(...
         'mu_2', 0,...       % initial mean of x_2
         'mu_3', 1,...       % initial mean of x_3
@@ -21,7 +21,7 @@ x_2 = zeros(N,1);
 x_3 = zeros(N,1);
 
 % Probability of u (e.g. height) given cue (e.g. eyes) = step function
-p_u_given_cue = [0.1 0.9 0.5 0.1 0.9];
+p_u_given_cue = [0.1 0.8 0.5 0.2 0.9];
 p_u_given_cue = repmat(p_u_given_cue, N/numel(p_u_given_cue), 1);
 p_u_given_cue = reshape(p_u_given_cue, N, 1);
 
@@ -82,27 +82,14 @@ gen = struct(...
         's',s,...
         'u',u);
 
-% Downsample trajectories -> input for the test
-gen_ds = gen;
-
-fn = fieldnames(gen_ds);
-for i = 1:numel(fn)
-    gen_ds.(fn{i}) = downsample(gen.(fn{i}), floor(N/trials));
-end
-p_u_given_cue_ds = downsample(p_u_given_cue, floor(N/trials));
-
 plot_traj(gen, p_u_given_cue)
 sgtitle('Generative model output', 'FontWeight', 'bold')
-plot_traj(gen_ds, p_u_given_cue_ds)
-sgtitle('Generative model output (downsampled)', 'FontWeight', 'bold')
 
 SAVE = input('Save generated inputs? (1|0)  ');
 
 if SAVE
     save('../interface/input.mat','gen')
-    save('../interface/input_ds.mat','gen_ds')
     struct2csv(gen,'../interface/input.csv');
-    struct2csv(gen_ds,'../interface/input_ds.csv');
     fprintf('Variables saved.\n')
 else
     fprintf('Variables not saved.\n')
