@@ -4,10 +4,10 @@ function users = create_users_struct(file_name_json)
     
     users = struct([]);
     
-    for i = 1 : N_users
-        users(i).biscuit_test = database_data.results(i).test1;
-        users(i).virus_test = database_data.results(i).test2;
-        users(i).anxiety_test = database_data.results(i).test3;
-        users(i).anxiety_test_result = users(i).anxiety_test
+    for i = 1:N_users
+        users(i).biscuit_test = string2array(database_data.results(i).test1, 'NaN');
+        users(i).virus_test = string2array(database_data.results(i).test2, 'NaN');
+        users(i).anxiety_test = string2array(database_data.results(i).test3, '');
+        users(i).anxiety_test_result = sum(users(i).anxiety_test) > 28;
     end
 end 
