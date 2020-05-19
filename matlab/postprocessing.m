@@ -5,8 +5,8 @@ database_file = '../interface/SurveyUserActions.json';
 inputs_file = '../interface/input.mat';
 
 users = create_users_struct(database_file);
-inputs = load(inputs_file).gen;
-
+inputs = load(inputs_file);
+inputs = inputs.gen;
 
 for i = 1:numel(users)
     % Estimate parameters mu_3, om_2, theta (om_3)
