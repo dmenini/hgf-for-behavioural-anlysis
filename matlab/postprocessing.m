@@ -4,11 +4,7 @@ addpath 'HGF'
 SAVE = 0;
 
 %% Intialization
-<<<<<<< HEAD
-database_file = '../interface/SurveyUserActions_88.json';
-=======
 database_file = '../interface/SurveyUserActions_54.json';
->>>>>>> 28cabc0f38fe2a1bbc5069a4417f70714fbfd094
 inputs_file = '../interface/input.mat';
 
 users = create_users_struct(database_file);
