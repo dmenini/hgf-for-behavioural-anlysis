@@ -149,7 +149,7 @@ b(HEALTY+1).FaceColor = C_BLUE;
 b(ANXIOUS+1).FaceColor = C_RED;
 title('\mu_3 MSE', 'FontSize', 15, 'FontWeight', 'bold')
 legend('Healthy controls', 'Anxious Patients', 'Location', 'northwest', 'FontSize', 10)
-ylim(axes1,[0 1]);
+ylim(axes1,[0 ceil(max(y))+1);
 
 %% K-Means Score based on ground truth
 fig0 = figure('Name','score');
@@ -159,7 +159,7 @@ X = categorical({'Biscuits', 'Sanitizer'});
 b = bar(X, y, 'BarWidth' , 0.3);
 b(1).FaceColor = [0, 0.5, 0];
 title('Cluster Score based on ground truth', 'FontSize', 15, 'FontWeight', 'bold')
-ylim(axes1,[0.45 0.9]);
+ylim(axes1,[0.5 0.8]);
 
 %%
 if SAVE
@@ -171,6 +171,6 @@ if SAVE
     saveas(fig5, ['../img/' get(fig5,'Name') '.jpg']);
     saveas(fig6, ['../img/' get(fig6,'Name') '.jpg']);
     saveas(fig7, ['../img/' get(fig7,'Name') '.jpg']);
-    saveas(fig8, ['../img/' get(fig7,'Name') '.jpg']);
+    saveas(fig8, ['../img/' get(fig8,'Name') '.jpg']);
     close all
 end
