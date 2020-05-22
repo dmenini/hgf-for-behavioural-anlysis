@@ -1,8 +1,6 @@
 clear
 rng(9876);
 addpath 'HGF'
-
-%% Intialization
 database_file = '../interface/SurveyUserActions_26.json';
 inputs_file = '../interface/input.mat';
 
@@ -10,18 +8,17 @@ users = create_users_struct(database_file);
 inputs = load(inputs_file);
 inputs = inputs.gen;
 
-%% Clustering
 for i = 1:numel(users)
     % Estimate parameters mu_3, om_2, theta (om_3)
     est_biscuits(i) = tapas_fitModel(users(i).biscuit_test,...
                          inputs.u,...
                          'tapas_hgf_binary_config_',...
-                         'tapas_unitsq_sgm_config',...
+                         'tapas_unitsq_sgm_mu3_config',...
                          'tapas_quasinewton_optim_config');
     est_virus(i) = tapas_fitModel(users(i).virus_test,...
                          inputs.u,...
                          'tapas_hgf_binary_config_',...
-                         'tapas_unitsq_sgm_config',...
+                         'tapas_unitsq_sgm_mu3_config',...
                          'tapas_quasinewton_optim_config');
 end
 
@@ -30,6 +27,10 @@ ideal_model = tapas_fitModel([],...
         'tapas_hgf_binary_config_',...
         'tapas_bayes_optimal_binary_config',...
         'tapas_quasinewton_optim_config');
+
+% Repat for different parameter configurations
+% ...
+%
 
 % K-means
 est_matrix_biscuits = zeros(numel(users), 3);
@@ -43,8 +44,8 @@ for i = 1:numel(users)
     om = est_biscuits(i).p_prc.om;
     p = est_biscuits(i).p_prc.p;
     ptrans = est_biscuits(i).p_prc.ptrans;
-    ze = est_biscuits(i).p_obs.ze;
   
+    % est_matrix_biscuits(i,:) = [mu_0(3) om(2) om(3)];
     est_matrix_biscuits(i,:) = [om(2) om(3) mu_0(3)];
 end
 mean_biscuits=mean(est_matrix_biscuits);
@@ -58,8 +59,8 @@ for i = 1:numel(users)
     om = est_virus(i).p_prc.om;
     p = est_virus(i).p_prc.p;
     ptrans = est_virus(i).p_prc.ptrans;
-    ze = est_virus(i).p_obs.ze;
   
+    % est_matrix_virus(i,:) = [mu_0(3) om(2) om(3)];
     est_matrix_virus(i,:) = [om(2) om(3) mu_0(3)];
     
 end
@@ -72,11 +73,6 @@ for i = 1:numel(users)
 end
 
 correct = calculate_correct (idx_virus, anxiety_vector);
-
-%% Statistical analysis
-
-
-
 
 %%
 plotall;

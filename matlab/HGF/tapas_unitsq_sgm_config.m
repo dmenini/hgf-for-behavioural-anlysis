@@ -38,8 +38,8 @@ function c = tapas_unitsq_sgm_config
 c = struct;
 
 % Is the decision based on predictions or posteriors? Comment as appropriate.
-c.predorpost = 1; % Predictions
-%c.predorpost = 2; % Posteriors
+%c.predorpost = 1; % Predictions
+c.predorpost = 2; % Posteriors
 
 % Model name
 c.model = 'tapas_unitsq_sgm';
@@ -48,7 +48,7 @@ c.model = 'tapas_unitsq_sgm';
 
 % Zeta
 c.logzemu = log(48);
-c.logzesa = 1;
+c.logzesa = 1;  %1
 
 % Gather prior settings in vectors
 c.priormus = [
