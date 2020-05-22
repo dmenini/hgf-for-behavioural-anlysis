@@ -4,7 +4,7 @@ addpath 'HGF'
 SAVE = 0;
 
 %% Intialization
-database_file = '../interface/SurveyUserActions_26.json';
+database_file = '../interface/SurveyUserActions_88.json';
 inputs_file = '../interface/input.mat';
 
 users = create_users_struct(database_file);
@@ -15,7 +15,7 @@ est_matrix_biscuits = zeros(numel(users), 3);
 est_matrix_virus = zeros(numel(users), 3);
 
 %% Estimation
-for i = 1:numel(users)
+parfor i = 1:numel(users)
     % Estimate parameters mu_3, om_2, theta (om_3)
     est_biscuits(i) = tapas_fitModel(users(i).biscuit_test,...
                          inputs.u,...
@@ -73,9 +73,11 @@ est_matrix_ideal = [om(2) om(3) mu_0(3)];
 %% Clustering
 mean_biscuits = mean(est_matrix_biscuits);
 [idx_biscuits, C_biscuits] = kmeans(est_matrix_biscuits, 2);
+idx_biscuits = idx_biscuits - 1;
 
 mean_virus = mean(est_matrix_virus);
 [idx_virus, C_virus] = kmeans(est_matrix_virus, 2);
+idx_virus = idx_virus - 1;
 
 anxiety_vector = zeros(1, numel(users));
 for i = 1:numel(users)
@@ -83,6 +85,9 @@ for i = 1:numel(users)
 end
 
 correct = calculate_correct (idx_virus, anxiety_vector);
+
+ANXIOUS = max(idx_biscuits);
+HEALTY = min(idx_biscuits);
 
 %% Statistical analysis
 error_biscuits = zeros(2, 3);
