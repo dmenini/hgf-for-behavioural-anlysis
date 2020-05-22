@@ -4,7 +4,7 @@ addpath 'HGF'
 SAVE = 0;
 
 %% Intialization
-database_file = '../interface/SurveyUserActions_88.json';
+database_file = '../interface/SurveyUserActions_54.json';
 inputs_file = '../interface/input.mat';
 
 users = create_users_struct(database_file);
@@ -84,12 +84,13 @@ for i = 1:numel(users)
    anxiety_vector(i) = users(i).anxiety_test_result;
 end
 
-correct = calculate_correct (idx_virus, anxiety_vector);
+correct_biscuits = calculate_correct(idx_biscuits, anxiety_vector);
+correct_virus = calculate_correct(idx_virus, anxiety_vector);
 
 ANXIOUS = max(idx_biscuits);
 HEALTY = min(idx_biscuits);
 
-%% Statistical analysis
+%% MSE of estimations
 error_biscuits = zeros(2, 3);
 error_virus = zeros(2, 3);
 for i = 1:numel(users)

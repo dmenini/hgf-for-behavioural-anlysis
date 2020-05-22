@@ -6,7 +6,7 @@ C_BLUE = [0, 0.447, 0.741];
 RED = [0.85, 0.325, 0.098];
 BLUE = [0.301, 0.745, 0.933];
 
-% Figure 1
+%% Sanitizer vs biscuits
 fig1 = figure('Name','sanit_biscuit', 'OuterPosition', outerpos);
 sgtitle('Parameter Space: Sanitizer vs. Biscuits', 'FontSize', 18, 'FontWeight', 'bold')
 
@@ -32,7 +32,7 @@ ylabel('om_3');
 zlabel('mu_3');
 title("Sanitizer's parameter space", 'FontSize', 15)
 
-% Figure 2
+%% Biscuits
 fig2 = figure('Name','biscuit', 'OuterPosition', outerpos);
 sgtitle('Parameter Space: Biscuits', 'FontSize', 18, 'FontWeight', 'bold')
 
@@ -70,7 +70,7 @@ ylabel('om_3');
 zlabel('mu_3');
 title("Biscuits' clusters", 'FontSize', 15)
 
-% Figure 3
+%% Cluster
 fig3 = figure('Name','sanitizer', 'OuterPosition', outerpos);
 sgtitle('Parameter Space: Sanitizer', 'FontSize', 18, 'FontWeight', 'bold')
 
@@ -108,7 +108,7 @@ ylabel('om_3');
 zlabel('mu_3');
 title("Sanitizers' clusters", 'FontSize', 15, 'FontWeight', 'bold')
 
-% Parameter correlation
+%% Parameter correlation
 fig4 = figure('Name','par_corr_bisc');
 tapas_fit_plotCorr(est_biscuits(7))
 title('Parameter correlation of biscuits', 'FontSize', 15, 'FontWeight', 'bold');
@@ -136,13 +136,24 @@ b(ANXIOUS+1).FaceColor = C_RED;
 title('om_3 MSE', 'FontSize', 15, 'FontWeight', 'bold')
 legend('Healthy controls', 'Anxious Patients', 'Location', 'northwest', 'FontSize', 10)
 
+%% Score
+fig0 = figure('Name','score');
+axes1 = axes('Parent',fig0);
+y = [correct_biscuits, correct_virus];
+X = categorical({'Biscuits', 'Sanitizer'});
+b = bar(X, y, 'BarWidth' , 0.3);
+b(1).FaceColor = [0, 0.5, 0];
+title('Cluster Score based on ground truth', 'FontSize', 15, 'FontWeight', 'bold')
+ylim(axes1,[0.5 0.8]);
+
 %%
 if SAVE
-    saveas(fig1, get('name', fig1), '.jpg')
-    saveas(fig2, get('name', fig2), '.jpg')
-    saveas(fig3, get('name', fig3), '.jpg')
-    saveas(fig4, get('name', fig4), '.jpg')
-    saveas(fig5, get('name', fig5), '.jpg')
-    saveas(fig6, get('name', fig6), '.jpg')
-    saveas(fig7, get('name', fig7), '.jpg')
+    saveas(fig0, strcat('../img/',get('name', fig0)), '.jpg')
+    saveas(fig1, strcat('../img/',get('name', fig1)), '.jpg')
+    saveas(fig2, strcat('../img/',get('name', fig2)), '.jpg')
+    saveas(fig3, strcat('../img/',get('name', fig3)), '.jpg')
+    saveas(fig4, strcat('../img/',get('name', fig4)), '.jpg')
+    saveas(fig5, strcat('../img/',get('name', fig5)), '.jpg')
+    saveas(fig6, strcat('../img/',get('name', fig6)), '.jpg')
+    saveas(fig7, strcat('../img/',get('name', fig7)), '.jpg')
 end
