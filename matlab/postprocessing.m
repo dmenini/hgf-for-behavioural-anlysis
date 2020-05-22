@@ -1,4 +1,4 @@
-clear
+clear; clc; close all;
 rng(9876);
 addpath 'HGF'
 SAVE = 0;

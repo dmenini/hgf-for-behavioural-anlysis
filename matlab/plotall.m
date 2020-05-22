@@ -148,12 +148,13 @@ ylim(axes1,[0.5 0.8]);
 
 %%
 if SAVE
-    saveas(fig0, strcat('../img/',get('name', fig0)), '.jpg')
-    saveas(fig1, strcat('../img/',get('name', fig1)), '.jpg')
-    saveas(fig2, strcat('../img/',get('name', fig2)), '.jpg')
-    saveas(fig3, strcat('../img/',get('name', fig3)), '.jpg')
-    saveas(fig4, strcat('../img/',get('name', fig4)), '.jpg')
-    saveas(fig5, strcat('../img/',get('name', fig5)), '.jpg')
-    saveas(fig6, strcat('../img/',get('name', fig6)), '.jpg')
-    saveas(fig7, strcat('../img/',get('name', fig7)), '.jpg')
+    saveas(fig0, ['../img/' get(fig0,'Name') '.jpg']);
+    saveas(fig1, ['../img/' get(fig1,'Name') '.jpg']);
+    saveas(fig2, ['../img/' get(fig2,'Name') '.jpg']);
+    saveas(fig3, ['../img/' get(fig3,'Name') '.jpg']);
+    saveas(fig4, ['../img/' get(fig4,'Name') '.jpg']);
+    saveas(fig5, ['../img/' get(fig5,'Name') '.jpg']);
+    saveas(fig6, ['../img/' get(fig6,'Name') '.jpg']);
+    saveas(fig7, ['../img/' get(fig7,'Name') '.jpg']);
+    close all
 end
