@@ -4,7 +4,11 @@ addpath 'HGF'
 SAVE = 0;
 
 %% Intialization
+<<<<<<< HEAD
 database_file = '../interface/SurveyUserActions_88.json';
+=======
+database_file = '../interface/SurveyUserActions_54.json';
+>>>>>>> 28cabc0f38fe2a1bbc5069a4417f70714fbfd094
 inputs_file = '../interface/input.mat';
 
 users = create_users_struct(database_file);
@@ -73,19 +77,24 @@ est_matrix_ideal = [om(2) om(3) mu_0(3)];
 %% Clustering
 mean_biscuits = mean(est_matrix_biscuits);
 [idx_biscuits, C_biscuits] = kmeans(est_matrix_biscuits, 2);
+idx_biscuits = idx_biscuits - 1;
 
 mean_virus = mean(est_matrix_virus);
 [idx_virus, C_virus] = kmeans(est_matrix_virus, 2);
+idx_virus = idx_virus - 1;
 
 anxiety_vector = zeros(1, numel(users));
 for i = 1:numel(users)
    anxiety_vector(i) = users(i).anxiety_test_result;
 end
 
-correct_virus = calculate_correct (idx_virus, anxiety_vector);
-correct_biscuits = calculate_correct (idx_biscuits, anxiety_vector);
+correct_biscuits = calculate_correct(idx_biscuits, anxiety_vector);
+correct_virus = calculate_correct(idx_virus, anxiety_vector);
 
-%% Statistical analysis
+ANXIOUS = max(idx_biscuits);
+HEALTY = min(idx_biscuits);
+
+%% MSE of estimations
 error_biscuits = zeros(2, 3);
 error_virus = zeros(2, 3);
 for i = 1:numel(users)
