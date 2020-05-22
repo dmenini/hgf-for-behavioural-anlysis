@@ -13,12 +13,12 @@ for i = 1:numel(users)
     est_biscuits(i) = tapas_fitModel(users(i).biscuit_test,...
                          inputs.u,...
                          'tapas_hgf_binary_config_',...
-                         'tapas_unitsq_sgm_config',...
+                         'tapas_unitsq_sgm_mu3_config',...
                          'tapas_quasinewton_optim_config');
     est_virus(i) = tapas_fitModel(users(i).virus_test,...
                          inputs.u,...
                          'tapas_hgf_binary_config_',...
-                         'tapas_unitsq_sgm_config',... %_mu3
+                         'tapas_unitsq_sgm_mu3_config',... %_mu3
                          'tapas_quasinewton_optim_config');
 end
 
@@ -33,8 +33,8 @@ ideal_model = tapas_fitModel([],...
 %
 
 % K-means
-est_matrix_biscuits = zeros(numel(users), 3);
-est_matrix_virus = zeros(numel(users), 3);
+est_matrix_biscuits = zeros(numel(users), 2);
+est_matrix_virus = zeros(numel(users), 2);
 
 for i = 1:numel(users)
     mu_0 = est_biscuits(i).p_prc.mu_0;
@@ -46,7 +46,7 @@ for i = 1:numel(users)
     ptrans = est_biscuits(i).p_prc.ptrans;
   
     % est_matrix_biscuits(i,:) = [mu_0(3) om(2) om(3)];
-    est_matrix_biscuits(i,:) = [om(2) om(3) mu_0(3)];
+    est_matrix_biscuits(i,:) = [om(2) mu_0(3)];
 end
 mean_biscuits=mean(est_matrix_biscuits);
 [idx_biscuits, C_biscuits] = kmeans(est_matrix_biscuits, 2);
@@ -61,7 +61,7 @@ for i = 1:numel(users)
     ptrans = est_virus(i).p_prc.ptrans;
   
     % est_matrix_virus(i,:) = [mu_0(3) om(2) om(3)];
-    est_matrix_virus(i,:) = [om(2) om(3) mu_0(3)];
+    est_matrix_virus(i,:) = [om(2) mu_0(3)];
     
 end
 mean_virus=mean(est_matrix_virus);

@@ -1,4 +1,4 @@
-function c = tapas_hgf_binary_config_2
+function c = tapas_hgf_binary_config_
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % Contains the configuration for the Hierarchical Gaussian Filter (HGF)
@@ -128,9 +128,9 @@ c.irregular_intervals = false;
 % and the second implies neutrality between outcomes when it
 % is centered at 0.
 c.mu_0mu = [NaN, 0, 1];
-c.mu_0sa = [NaN, 0, 4^2];
+c.mu_0sa = [NaN, 0, 4^2]; %4^2
 
-c.logsa_0mu = [NaN,   log(0.1), log(1)];
+c.logsa_0mu = [NaN,   log(0.1), log(1)]; 
 c.logsa_0sa = [NaN,          0, 0];
 
 % Rhos
@@ -146,14 +146,14 @@ c.rhosa = [NaN, 0, 0];
 % Higher log(kappas) should be fixed (preferably to log(1)) if the
 % observation model does not use mu_i+1 (kappa then determines the
 % scaling of x_i+1).
-c.logkamu = [log(1), log(2.5)];
+c.logkamu = [log(1), log(1)];
 c.logkasa = [     0,        0];
 
 % Omegas
 % Format: row vector of length n_levels.
 % Undefined (therefore NaN) at the first level.
-c.ommu = [NaN,  -4,  -6];
-c.omsa = [NaN, 4^2, 4^2];
+c.ommu = [NaN,  -3,  -6];
+c.omsa = [NaN, 4^2, 4^2]; %4^2
 
 % Gather prior settings in vectors
 c.priormus = [
