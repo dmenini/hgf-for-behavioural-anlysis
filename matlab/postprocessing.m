@@ -18,6 +18,10 @@ anxiety_vector = zeros(1, numel(users));
 error_biscuits = zeros(2, 3);
 error_virus = zeros(2, 3);
 
+for i = 1:numel(users)
+   anxiety_vector(i) = users(i).anxiety_test_result;
+end
+
 %% Estimation of mu_3, om_2, om_3 (and ze)
 parfor i = 1:numel(users)
     est_biscuits(i) = tapas_fitModel(users(i).biscuit_test,...
@@ -60,10 +64,6 @@ idx_biscuits = idx_biscuits - 1;    % [0,1]
 mean_virus = mean(est_matrix_virus);
 [idx_virus, C_virus] = kmeans(est_matrix_virus, 2);
 idx_virus = idx_virus - 1;          % [0,1]
-
-for i = 1:numel(users)
-   anxiety_vector(i) = users(i).anxiety_test_result;
-end
 
 correct_biscuits = calculate_correct(idx_biscuits, anxiety_vector);
 correct_virus = calculate_correct(idx_virus, anxiety_vector);

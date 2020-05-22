@@ -163,7 +163,7 @@ ylim(axes1,[0 1]);
 
 %% Input sequence
 fig10 = figure('Name', 'inputs');
-p_u_given_cue = [0.1 0.8 0.5 0.2 0.9];
+p_u_given_cue = [0.1 0.9 0.5 0.1 0.9];
 plot_traj(fig10, inputs, p_u_given_cue)
 
 %% Save (from postprocessing or manually set)

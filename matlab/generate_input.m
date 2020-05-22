@@ -21,7 +21,7 @@ x_2 = zeros(N,1);
 x_3 = zeros(N,1);
 
 % Probability of u (e.g. height) given cue (e.g. eyes) = step function
-p_u_given_cue = [0.1 0.8 0.5 0.2 0.9];
+p_u_given_cue = [0.1 0.9 0.5 0.1 0.9];
 pb = repmat(p_u_given_cue, N/numel(p_u_given_cue), 1);
 pb = reshape(pb, N, 1);
 
@@ -82,7 +82,7 @@ gen = struct(...
         's',s,...
         'u',u);
 
-fig10 = figure('Name', 'inputs');
+fig = figure('Name', 'inputs');
 plot_traj(fig, gen, p_u_given_cue)
 sgtitle('Generative model output', 'FontWeight', 'bold')
 
