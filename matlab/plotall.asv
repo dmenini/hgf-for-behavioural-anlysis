@@ -3,7 +3,7 @@ outerpos = [0.2*scrsz(3), 0.2*scrsz(4), 0.8*scrsz(3), 0.8*scrsz(4)];
 
 % Figure 1
 fig1 = figure('Name','sanit_biscuit', 'OuterPosition', outerpos);
-sgtitle('Parameter Space: Sanitizer vs. Biscuits', 'FontSize', 18, 'FontWeight', 'bold')
+sgtitle('Parameter Space: Sanitizer vs. Biscuits', 'FontSize', 20, 'FontWeight', 'bold')
 
 subplot(1,2,1)
 C = zeros(numel(users), 3);
@@ -18,18 +18,18 @@ scatter3(est_matrix_virus(:,1),est_matrix_virus(:,2),est_matrix_virus(:,3),50,C,
 xlabel('om_2');
 ylabel('om_3');
 zlabel('mu_3');
-title("Biscuits' parameter space", 'FontSize', 15)
+title("Biscuits' parameter space", 'FontSize', 16)
 
 subplot(1,2,2)
 scatter3(est_matrix_biscuits(:,1),est_matrix_biscuits(:,2),est_matrix_biscuits(:,3),50,C,'filled','MarkerEdgeColor','k')
 xlabel('om_2');
 ylabel('om_3');
 zlabel('mu_3');
-title("Sanitizer's parameter space", 'FontSize', 15)
+title("Sanitizer's parameter space", 'FontSize', 16)
 
 %Figure 2
 fig2 = figure('Name','biscuit', 'OuterPosition', outerpos);
-sgtitle('Parameter Space: Biscuits', 'FontSize', 18, 'FontWeight', 'bold')
+sgtitle('Parameter Space: Biscuits', 'FontSize', 20, 'FontWeight', 'bold')
 
 subplot(1,2,1)
 C = zeros(numel(users), 3);
@@ -40,7 +40,7 @@ for i = 1:numel(users)
         C(i,:) = [0.466, 0.674, 0.188];
     end
 end
-scatter3(est_matrix_biscuits(:,1),est_matrix_biscuits(:,2),est_matrix_biscuits(:,3),50,C,'filled','MarkerEdgeColor','k')
+scatter3(est_matrix_biscuits(:,1),est_matrix_biscuits(:,2),est_matrix_biscuits(:,3),60,C,'filled','MarkerEdgeColor','k')
 xlabel('om_2');
 ylabel('om_3');
 zlabel('mu_3');
@@ -55,7 +55,7 @@ for i = 1:numel(users)
         C(i,:) = [0.466, 0.674, 0.188];
     end
 end
-scatter3(est_matrix_biscuits(:,1),est_matrix_biscuits(:,2),est_matrix_biscuits(:,3),50,C,'filled','MarkerEdgeColor','k')
+scatter3(est_matrix_biscuits(:,1),est_matrix_biscuits(:,2),est_matrix_biscuits(:,3),60,C,'filled','MarkerEdgeColor','k')
 hold on
 scatter3(C_virus(1,1),C_virus(1,2),C_virus(1,3),100,'d','MarkerEdgeColor', 'k', 'MarkerFaceColor', [0, 0.5, 0]);
 scatter3(C_virus(2,1),C_virus(2,2),C_virus(2,3),100,'d','MarkerEdgeColor', 'k', 'MarkerFaceColor', [0.6350, 0.0780, 0.1840]);
@@ -63,11 +63,11 @@ hold off
 xlabel('om_2');
 ylabel('om_3');
 zlabel('mu_3');
-title("Biscuits' clusters", 'FontSize', 15)
+title("Biscuits' clusters", 'FontSize', 16)
 
 % Figure 3
 fig3 = figure('Name','sanitizer', 'OuterPosition', outerpos);
-sgtitle('Parameter Space: Sanitizer', 'FontSize', 18, 'FontWeight', 'bold')
+sgtitle('Parameter Space: Sanitizer', 'FontSize', 20, 'FontWeight', 'bold')
 
 subplot(1,2,1)
 C = zeros(numel(users), 3);
@@ -78,11 +78,11 @@ for i = 1:numel(users)
         C(i,:) = [0.466, 0.674, 0.188];
     end
 end
-scatter3(est_matrix_virus(:,1),est_matrix_virus(:,2),est_matrix_virus(:,3),50,C,'filled','MarkerEdgeColor','k')
+scatter3(est_matrix_virus(:,1),est_matrix_virus(:,2),est_matrix_virus(:,3),60,C,'filled','MarkerEdgeColor','k')
 xlabel('om_2');
 ylabel('om_3');
 zlabel('mu_3');
-title("Sanitizers' ground truth", 'FontSize', 15)
+title("Sanitizers' ground truth", 'FontSize', 16)
 
 subplot(1,2,2)
 C = zeros(numel(users), 3);
@@ -93,7 +93,7 @@ for i = 1:numel(users)
         C(i,:) = [0.466, 0.674, 0.188];
     end
 end
-scatter3(est_matrix_virus(:,1),est_matrix_virus(:,2),est_matrix_virus(:,3),50,C,'filled','MarkerEdgeColor','k')
+scatter3(est_matrix_virus(:,1),est_matrix_virus(:,2),est_matrix_virus(:,3),60,C,'filled','MarkerEdgeColor','k')
 hold on
 scatter3(C_virus(1,1),C_virus(1,2),C_virus(1,3),100,'d','MarkerEdgeColor', 'k', 'MarkerFaceColor', [0, 0.5, 0]);
 scatter3(C_virus(2,1),C_virus(2,2),C_virus(2,3),100,'d','MarkerEdgeColor', 'k', 'MarkerFaceColor', [0.6350, 0.0780, 0.1840]);
@@ -101,16 +101,16 @@ hold off
 xlabel('om_2');
 ylabel('om_3');
 zlabel('mu_3');
-title("Sanitizers' clusters", 'FontSize', 15, 'FontWeight', 'bold')
+title("Sanitizers' clusters", 'FontSize', 16, 'FontWeight', 'bold')
 
 % Parameter correlation
 fig4 = figure('Name','par_corr_bisc');
 tapas_fit_plotCorr(est_biscuits(7))
-title('Parameter correlation of biscuits', 'FontSize', 15, 'FontWeight', 'bold');
+title('Parameter correlation of biscuits', 'FontSize', 16, 'FontWeight', 'bold');
 
 fig5 = figure('Name','par_corr_virus');
 tapas_fit_plotCorr(est_virus(7))
-title('Parameter correlation of sanitizer', 'FontSize', 15, 'FontWeight', 'bold');
+title('Parameter correlation of sanitizer', 'FontSize', 16, 'FontWeight', 'bold');
 
 %% MSE estimations
 fig6 = figure('Name', 'mse_om2');
@@ -119,7 +119,7 @@ X = categorical({'Biscuits', 'Sanitizer'});
 b = bar(X, y);
 b(1).FaceColor = [0, 0.5, 0];
 b(2).FaceColor = [0.6350, 0.0780, 0.1840];
-title('om_2 MSE', 'FontSize', 15, 'FontWeight', 'bold')
+title('om_2 MSE', 'FontSize', 16, 'FontWeight', 'bold')
 legend('Healthy controls', 'Anxious Patients', 'Location', 'northwest', 'FontSize', 10)
 
 fig7 = figure('Name', 'mse_om3');
@@ -128,7 +128,7 @@ X = categorical({'Biscuits', 'Sanitizer'});
 b = bar(X, y);
 b(1).FaceColor = [0, 0.5, 0];
 b(2).FaceColor = [0.6350, 0.0780, 0.1840];
-title('om_3 MSE', 'FontSize', 15, 'FontWeight', 'bold')
+title('om_3 MSE', 'FontSize', 16, 'FontWeight', 'bold')
 legend('Healthy controls', 'Anxious Patients', 'Location', 'northwest', 'FontSize', 10)
 
 %%

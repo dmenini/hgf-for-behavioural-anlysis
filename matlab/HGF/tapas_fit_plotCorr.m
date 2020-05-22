@@ -13,11 +13,11 @@ function tapas_fit_plotCorr(r)
 % COPYING or <http://www.gnu.org/licenses/>.
 
 % Set up display
-scrsz = get(0,'screenSize');
-outerpos = [0*scrsz(3),0.4*scrsz(4),0.6*scrsz(4),0.6*scrsz(4)];
-figure(...
-    'OuterPosition', outerpos,...
-    'Name','Posterior parameter correlation matrix');
+% scrsz = get(0,'screenSize');
+% outerpos = [0*scrsz(3),0.4*scrsz(4),0.6*scrsz(4),0.6*scrsz(4)];
+% figure(...
+%     'OuterPosition', outerpos,...
+%     'Name','Posterior parameter correlation matrix');
 
 % Determine indices of parameters to optimize (i.e., those that are not fixed and not NaN)
 prc_ind = r.c_prc.priorsas;
