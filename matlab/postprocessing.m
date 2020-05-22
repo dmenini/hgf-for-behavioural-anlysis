@@ -10,14 +10,16 @@ inputs_file = '../interface/input.mat';
 users = create_users_struct(database_file);
 inputs = load(inputs_file);
 inputs = inputs.gen;
+u = inputs.u;
 
 est_matrix_biscuits = zeros(numel(users), 3);
 est_matrix_virus = zeros(numel(users), 3);
+anxiety_vector = zeros(1, numel(users));
+error_biscuits = zeros(2, 3);
+error_virus = zeros(2, 3);
 
-%% Estimation
-u = inputs.u;
+%% Estimation of mu_3, om_2, om_3 (and ze)
 parfor i = 1:numel(users)
-    % Estimate parameters mu_3, om_2, theta (om_3)
     est_biscuits(i) = tapas_fitModel(users(i).biscuit_test,...
                          u,...
                          'tapas_hgf_binary_config_',...
@@ -50,16 +52,15 @@ mu_0 = ideal_model.p_prc.mu_0;
 om = ideal_model.p_prc.om;
 est_matrix_ideal = [om(2) om(3) mu_0(3)];
 
-%% Clustering
+%% K-means Clustering
 mean_biscuits = mean(est_matrix_biscuits);
 [idx_biscuits, C_biscuits] = kmeans(est_matrix_biscuits, 2);
-idx_biscuits = idx_biscuits - 1;
+idx_biscuits = idx_biscuits - 1;    % [0,1]
 
 mean_virus = mean(est_matrix_virus);
 [idx_virus, C_virus] = kmeans(est_matrix_virus, 2);
-idx_virus = idx_virus - 1;
+idx_virus = idx_virus - 1;          % [0,1]
 
-anxiety_vector = zeros(1, numel(users));
 for i = 1:numel(users)
    anxiety_vector(i) = users(i).anxiety_test_result;
 end
@@ -70,9 +71,7 @@ correct_virus = calculate_correct(idx_virus, anxiety_vector);
 ANXIOUS = max(idx_biscuits);    % 1
 HEALTY = min(idx_biscuits);     % 0
 
-%% MSE of estimations
-error_biscuits = zeros(2, 3);
-error_virus = zeros(2, 3);
+%% MSE of estimations (users - ideal)
 for i = 1:numel(users)
     idx = users(i).anxiety_test_result + 1;
     error_virus(idx,:) = error_virus(idx,:) + (est_matrix_virus(i,:) - est_matrix_ideal).^2;
@@ -81,6 +80,6 @@ end
 error_virus = error_virus / numel(users);
 error_biscuits = error_biscuits / numel(users);
 
-%%
-plotall;
+%% Plots
+plot_all;
 

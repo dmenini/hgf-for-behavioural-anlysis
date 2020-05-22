@@ -22,8 +22,8 @@ x_3 = zeros(N,1);
 
 % Probability of u (e.g. height) given cue (e.g. eyes) = step function
 p_u_given_cue = [0.1 0.8 0.5 0.2 0.9];
-p_u_given_cue = repmat(p_u_given_cue, N/numel(p_u_given_cue), 1);
-p_u_given_cue = reshape(p_u_given_cue, N, 1);
+pb = repmat(p_u_given_cue, N/numel(p_u_given_cue), 1);
+pb = reshape(pb, N, 1);
 
 run = 1;
 
@@ -39,7 +39,7 @@ while run
         x_3(i) = normal(x_3(i-1), exp(P.om_3));
         x_2(i) = normal(x_2(i-1), exp(P.ka_2 * x_3(i) + P.om_2));
         s(i) = 1 / (1 + exp(-x_2(i)));
-        x_1(i) = bern(s(i),p_u_given_cue(i));
+        x_1(i) = bern(s(i),pb(i));
     end
 
     % Ground truth of the user belief (e.g. height or next supermarket)
@@ -51,7 +51,7 @@ while run
             u(i) = 1 - cues(i);
         end
     end
-    if sum(abs(x_1 - p_u_given_cue)) < 0.2*N
+    if sum(abs(x_1 - pb)) < 0.2*N
         run = 0;
     end
 end
@@ -82,7 +82,8 @@ gen = struct(...
         's',s,...
         'u',u);
 
-plot_traj(gen, p_u_given_cue)
+fig10 = figure('Name', 'inputs');
+plot_traj(fig, gen, p_u_given_cue)
 sgtitle('Generative model output', 'FontWeight', 'bold')
 
 SAVE = input('Save generated inputs? (1|0)  ');

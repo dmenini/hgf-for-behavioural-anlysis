@@ -1,15 +1,16 @@
-function plot_traj(gen, pb)
+function plot_traj(fig, gen, pb)
 
 % Set up display
 scrsz = get(0,'screenSize');
 outerpos = [0.2*scrsz(3),0.2*scrsz(4),0.8*scrsz(3),0.8*scrsz(4)];
-figure(...
-    'OuterPosition', outerpos,...
-    'Name', 'input_generative');
+fig.OuterPosition = outerpos;
 
 % Time axis
-ts = numel(gen.u);
-ts = 1:ts;
+N = numel(gen.u);
+ts = 1:N;
+
+pb = repmat(pb, N/numel(pb), 1);
+pb = reshape(pb, N, 1);
 
 subplot(5,1,1);
 plot(ts, gen.x_3, 'b', 'LineWidth', 2);
@@ -20,13 +21,13 @@ ylabel('x_{3}');
 subplot(5,1,2);
 plot(ts, gen.x_2, 'b', 'LineWidth', 2); % prior
 xlim([1 ts(end)]);
-title('Condition probability in logit of height given eyes', 'FontWeight', 'bold');
+title('Condition probability in logit of biscuits given cues', 'FontWeight', 'bold');
 ylabel('x_{2}');
 
 subplot(5,1,3);
 plot(ts, gen.s, 'b', 'LineWidth', 2);
 xlim([1 ts(end)]);
-title('Condition probability of height given eyes', 'FontWeight', 'bold');
+title('Condition probability of biscuits given cues', 'FontWeight', 'bold');
 ylabel('s(x_{2})');
 
 subplot(5,1,4);
@@ -35,7 +36,7 @@ hold on
 plot(ts, pb, 'k', 'LineWidth', 1);
 hold off
 xlim([1 ts(end)]);
-title('Bernoulli(p(u|cues),s(x_{2})) (blue) and p(u|cues)  (black)', 'FontWeight', 'bold');
+title('\bf{$Bern(p(u|cues),s(x_{2}))$ (blue) and $ p(u|cues) $ (black)}','interpreter','latex');
 ylabel('x_{1}, p(u|cues)');
 
 subplot(5,1,5);
@@ -46,6 +47,6 @@ xlim([1 ts(end)]);
 title('Cues (orange) and ground truth (green)', 'FontWeight', 'bold');
 ylabel('u, cues');
 xlabel('Trial number');
-axis([0 ts(end) -0.1 1.1])
+axis([0 ts(end) -0.1 1.2])
 
 end

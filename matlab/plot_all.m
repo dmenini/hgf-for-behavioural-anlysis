@@ -6,6 +6,16 @@ C_BLUE = [0, 0.447, 0.741];
 RED = [0.85, 0.325, 0.098];
 BLUE = [0.301, 0.745, 0.933];
 
+%% K-Means Score based on ground truth
+fig0 = figure('Name','score');
+axes1 = axes('Parent',fig0);
+y = [correct_biscuits, correct_virus];
+X = categorical({'Biscuits', 'Sanitizer'});
+b = bar(X, y, 'BarWidth' , 0.3);
+b(1).FaceColor = [0, 0.5, 0];
+title('Cluster Score based on ground truth', 'FontSize', 15, 'FontWeight', 'bold')
+ylim(axes1,[0.45 0.9]);
+
 %% Sanitizer vs biscuits
 fig1 = figure('Name','sanit_biscuit', 'OuterPosition', outerpos);
 sgtitle('Parameter Space: Sanitizer vs. Biscuits', 'FontSize', 18, 'FontWeight', 'bold')
@@ -149,19 +159,14 @@ b(HEALTY+1).FaceColor = C_BLUE;
 b(ANXIOUS+1).FaceColor = C_RED;
 title('\mu_3 MSE', 'FontSize', 15, 'FontWeight', 'bold')
 legend('Healthy controls', 'Anxious Patients', 'Location', 'northwest', 'FontSize', 10)
-ylim(axes1,[0 ceil(max(y))+1);
+ylim(axes1,[0 1]);
 
-%% K-Means Score based on ground truth
-fig0 = figure('Name','score');
-axes1 = axes('Parent',fig0);
-y = [correct_biscuits, correct_virus];
-X = categorical({'Biscuits', 'Sanitizer'});
-b = bar(X, y, 'BarWidth' , 0.3);
-b(1).FaceColor = [0, 0.5, 0];
-title('Cluster Score based on ground truth', 'FontSize', 15, 'FontWeight', 'bold')
-ylim(axes1,[0.5 0.8]);
+%% Input sequence
+fig10 = figure('Name', 'inputs');
+p_u_given_cue = [0.1 0.8 0.5 0.2 0.9];
+plot_traj(fig10, inputs, p_u_given_cue)
 
-%%
+%% Save (from postprocessing or manually set)
 if SAVE
     saveas(fig0, ['../img/' get(fig0,'Name') '.jpg']);
     saveas(fig1, ['../img/' get(fig1,'Name') '.jpg']);
