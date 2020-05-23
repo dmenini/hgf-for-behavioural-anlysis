@@ -48,7 +48,7 @@ c.model = 'tapas_unitsq_sgm';
 
 % Zeta
 c.logzemu = log(48);
-c.logzesa = 0;  %1
+c.logzesa = 1;  %1
 
 % Gather prior settings in vectors
 c.priormus = [
