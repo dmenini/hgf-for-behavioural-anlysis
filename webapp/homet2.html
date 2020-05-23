@@ -1,0 +1,75 @@
+<html>
+<head>
+    
+    
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <!-- jQuery library -->
+
+  <link rel="stylesheet" type="text/css" href="style/style.css">
+
+  
+  <title>TNU Test</title>
+   <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0" />
+   <style>
+       html, body { height:100%; width:100%;}
+   </style>
+   
+   <script>
+       function next(page_name) {
+           key_id = parent.document.URL.substring(parent.document.URL.indexOf('?'), parent.document.URL.length);
+           window.location=page_name+'.html'+key_id
+       }
+    </script>
+  
+  
+</head>
+<body>
+    
+    <div style="position: fixed; height:100%; width:100%;  max-width:800px; top:0; left:0;">
+        <div style="height:calc(100% - 180px); width:100%; margin-top: 90px; z-index: 100; overflow-y: scroll;">
+        <div style="display:block; width:100%; margin:0%;"><center><div style="align:auto; margin:10%; height:80%; font-size: 20px; font-weight: 10; font-family: 'Verdana';">
+          
+
+            
+            In questa seconda fase dell'esperimento immagina di andare al tuo supermercato abituale per comprare del disinfettante per le mani.
+            <br><br>
+In base alle foto che compariranno, immagina di trovare gli scaffali pieni oppure vuoti in quel supermercato.
+            <br><br>
+Ti chiediamo di indovinare se in un altro supermercato li nei dintorni si presenti o meno la stessa situazione per questo prodotto.
+            <br><br>
+La relazione tra i due supermercati &egrave regolata da una certa logica che varia nel tempo. Osservando la progressione del test, cerca di capire la logica per indovinare quante pi&ugrave domande possibili.
+            <br><br>
+Pronti?
+        
+        </div></div></div>
+      
+    <div style="position: absolute; top:0; left:0; width:100%; height: 90px; z-index:10; opacity:1; background:#cccccc">
+    <div class="title" id="title-div" style="margin-top:10px; height:60px; font-family: 'Verdana'; font-size: 45px; font-weight: 10;">
+    
+    <center>Sanitizer or Not?</h></center>
+    
+    </div>
+    </div>
+
+    <div style="position: absolute; bottom:0; left:0; width:100%; height: 90px; z-index:11; opacity:1; background:#cccccc">
+    <div id="actions-div" class="global-actions" style="margin-top:10px; margin-left:50%">
+    
+    <div class="top-action" onclick="next('test2')" style="width:200px; margin-left:-120px; font-size: 15px; font-weight: 10; font-family: 'Verdana'; cursor: pointer;">Via</div>
+    
+    </div>
+    </div>
+
+    </div>
+
+</div>
+
+
+
+</body>
+
+
+
+
+
+</html>
