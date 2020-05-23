@@ -1,7 +1,7 @@
 clear; clc; close all;
 rng(9876);
 addpath 'HGF'
-SAVE = 0;
+SAVE = 1;
 
 %% Intialization
 database_file = '../interface/SurveyUserActions_54.json';

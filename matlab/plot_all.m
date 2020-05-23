@@ -29,14 +29,14 @@ for i = 1:numel(users)
         C(i,:) = RED;
     end
 end
-scatter3(est_matrix_virus(:,1),est_matrix_virus(:,2),est_matrix_virus(:,3),50,C,'filled','MarkerEdgeColor','k')
+scatter3(est_matrix_virus(:,1),est_matrix_virus(:,2),est_matrix_virus(:,3),70,C,'filled','MarkerEdgeColor','k')
 xlabel('om_2');
 ylabel('om_3');
 zlabel('mu_3');
 title("Biscuits' parameter space", 'FontSize', 15)
 
 subplot(1,2,2)
-scatter3(est_matrix_biscuits(:,1),est_matrix_biscuits(:,2),est_matrix_biscuits(:,3),50,C,'filled','MarkerEdgeColor','k')
+scatter3(est_matrix_biscuits(:,1),est_matrix_biscuits(:,2),est_matrix_biscuits(:,3),70,C,'filled','MarkerEdgeColor','k')
 xlabel('om_2');
 ylabel('om_3');
 zlabel('mu_3');
@@ -55,7 +55,7 @@ for i = 1:numel(users)
         C(i,:) = RED;
     end
 end
-scatter3(est_matrix_biscuits(:,1),est_matrix_biscuits(:,2),est_matrix_biscuits(:,3),50,C,'filled','MarkerEdgeColor','k')
+scatter3(est_matrix_biscuits(:,1),est_matrix_biscuits(:,2),est_matrix_biscuits(:,3),70,C,'filled','MarkerEdgeColor','k')
 xlabel('om_2');
 ylabel('om_3');
 zlabel('mu_3');
@@ -70,10 +70,10 @@ for i = 1:numel(users)
         C(i,:) = RED;
     end
 end
-scatter3(est_matrix_biscuits(:,1),est_matrix_biscuits(:,2),est_matrix_biscuits(:,3),50,C,'filled','MarkerEdgeColor','k')
+scatter3(est_matrix_biscuits(:,1),est_matrix_biscuits(:,2),est_matrix_biscuits(:,3),70,C,'filled','MarkerEdgeColor','k')
 hold on
-scatter3(C_virus(1,1),C_virus(1,2),C_virus(1,3),100,'d','MarkerEdgeColor', 'k', 'MarkerFaceColor', C_BLUE);
-scatter3(C_virus(2,1),C_virus(2,2),C_virus(2,3),100,'d','MarkerEdgeColor', 'k', 'MarkerFaceColor', C_RED);
+scatter3(C_virus(1,1),C_virus(1,2),C_virus(1,3),120,'d','MarkerEdgeColor', 'k', 'MarkerFaceColor', C_BLUE);
+scatter3(C_virus(2,1),C_virus(2,2),C_virus(2,3),120,'d','MarkerEdgeColor', 'k', 'MarkerFaceColor', C_RED);
 hold off
 xlabel('om_2');
 ylabel('om_3');
@@ -93,7 +93,7 @@ for i = 1:numel(users)
         C(i,:) = BLUE;
     end
 end
-scatter3(est_matrix_virus(:,1),est_matrix_virus(:,2),est_matrix_virus(:,3),50,C,'filled','MarkerEdgeColor','k')
+scatter3(est_matrix_virus(:,1),est_matrix_virus(:,2),est_matrix_virus(:,3),70,C,'filled','MarkerEdgeColor','k')
 xlabel('om_2');
 ylabel('om_3');
 zlabel('mu_3');
@@ -108,10 +108,10 @@ for i = 1:numel(users)
         C(i,:) = RED;
     end
 end
-scatter3(est_matrix_virus(:,1),est_matrix_virus(:,2),est_matrix_virus(:,3),50,C,'filled','MarkerEdgeColor','k')
+scatter3(est_matrix_virus(:,1),est_matrix_virus(:,2),est_matrix_virus(:,3),70,C,'filled','MarkerEdgeColor','k')
 hold on
-scatter3(C_virus(1,1),C_virus(1,2),C_virus(1,3),100,'d','MarkerEdgeColor', 'k', 'MarkerFaceColor', C_BLUE);
-scatter3(C_virus(2,1),C_virus(2,2),C_virus(2,3),100,'d','MarkerEdgeColor', 'k', 'MarkerFaceColor', C_RED);
+scatter3(C_virus(1,1),C_virus(1,2),C_virus(1,3),120,'d','MarkerEdgeColor', 'k', 'MarkerFaceColor', C_BLUE);
+scatter3(C_virus(2,1),C_virus(2,2),C_virus(2,3),120,'d','MarkerEdgeColor', 'k', 'MarkerFaceColor', C_RED);
 hold off
 xlabel('om_2');
 ylabel('om_3');
