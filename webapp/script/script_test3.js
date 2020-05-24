@@ -53,11 +53,11 @@ var inputs = [
 // "Che cosa sta accadendo nella tua vita? Il test ha rilevato un livello alto di ansia.\nIl punteggio rivela un livello alto di ansia. La reazione ansiosa tende a manifestarsi in modo diffuso e generalizzato e rischia di divenire per te una modalit\u00e0 quasi esclusiva di reazione agli stimoli. Il senso di armonia con te stesso, alcune tue potenzialit\u00e0 professionali e la tua vita sociale e sentimentale rischiano di venire parzialmente compromessi da questo stato pervasivo e fastidioso di tensione emotiva. Anche il tuo corpo viene coinvolto in questo generale stato di apprensione e non sono infrequenti manifestazioni di malessere e somatizzazioni a carico di alcuni organi. Mal di testa, disturbi all'apparato gastrointestinale, difficolt\u00e0 respiratorie, manifestazioni cutanee e dolori di varia natura possono accompagnare questo generale stato di malessere. E' forse opportuno prendere in considerazione la possibilit\u00e0 di inziare una psicoterapia."]
 
 var score_message = [
-"Anxiety? No thanks."
-"Small signals of anxiety. It is not the case to worry about it."
-"Medium level of anxiety. Keep under control the sources of stress."
-"Medium-high level of anxiety. Attention span."
-"What is happening in your life? The test has revealed an high level of anxiety."
+"Anxiety? No thanks.",
+"Small signals of anxiety. It is not the case to worry about it.",
+"Medium level of anxiety. Keep under control the sources of stress.",
+"Medium-high level of anxiety. Attention span.",
+"What is happening in your life? The test has revealed an high level of anxiety.",
 
 ]
 
