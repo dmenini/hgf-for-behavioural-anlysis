@@ -186,6 +186,15 @@ fig9 = figure('Name', 'inputs');
 p_u_given_cue = [0.1 0.9 0.3 0.7 0.1 0.9];
 plot_traj(fig9, inputs, p_u_given_cue)
 
+%% Simulations               
+tapas_hgf_binary_plotTraj(sim_ideal)
+sgtitle('ideal')
+
+tapas_hgf_binary_plotTraj(sim_anxious)
+sgtitle('virus anxious')
+
+tapas_hgf_binary_plotTraj(sim_healty)
+sgtitle('virus healthy') 
 %% Save (from postprocessing or manually set)
 if SAVE
     saveas(fig0, ['../img/' get(fig0,'Name') '.jpg']);
