@@ -6,7 +6,7 @@ bern = @(p,x) p.^x .* (1-p).^(1-x);
 
 N = 120;
 
-P = struct(...
+        P = struct(...
         'mu_2', 0,...       % initial mean of x_2
         'mu_3', 1,...       % initial mean of x_3
         'sa_2', 1,...       % initial variance of x_2

@@ -9,7 +9,7 @@ GREEN = [0,0.5,0];
 
 C_SIZE = 150;
 SIZE = 90;
-SAVE=1;
+
 %% K-Means Score based on ground truth
 fig0 = figure('Name','score');
 axes1 = axes('Parent',fig0);
@@ -82,7 +82,7 @@ scatter3(est_matrix_biscuits(:,1),est_matrix_biscuits(:,2),est_matrix_biscuits(:
 hold on
 scatter3(C_virus(1,1),C_virus(1,2),C_virus(1,3),C_SIZE,'d','MarkerEdgeColor', 'k', 'MarkerFaceColor', C_BLUE);
 scatter3(C_virus(2,1),C_virus(2,2),C_virus(2,3),C_SIZE,'d','MarkerEdgeColor', 'k', 'MarkerFaceColor', C_RED);
-scatter3(est_matrix_ideal(1),est_matrix_ideal(2),est_matrix_ideal(3),C_SIZE,'d','MarkerEdgeColor', 'k', 'MarkerFaceColor', GREEN);
+scatter3(C_ideal(1),C_ideal(2),C_ideal(3),C_SIZE,'d','MarkerEdgeColor', 'k', 'MarkerFaceColor', GREEN);
 hold off
 xlabel('\omega_2');
 ylabel('\omega_3');
@@ -123,7 +123,7 @@ scatter3(est_matrix_virus(:,1),est_matrix_virus(:,2),est_matrix_virus(:,3),SIZE,
 hold on
 scatter3(C_virus(1,1),C_virus(1,2),C_virus(1,3),C_SIZE,'d','MarkerEdgeColor', 'k', 'MarkerFaceColor', C_BLUE);
 scatter3(C_virus(2,1),C_virus(2,2),C_virus(2,3),C_SIZE,'d','MarkerEdgeColor', 'k', 'MarkerFaceColor', C_RED);
-scatter3(est_matrix_ideal(1),est_matrix_ideal(2),est_matrix_ideal(3),C_SIZE,'d','MarkerEdgeColor', 'k', 'MarkerFaceColor', [0,0.5,0]);
+scatter3(C_ideal(1),C_ideal(2),C_ideal(3),C_SIZE,'d','MarkerEdgeColor', 'k', 'MarkerFaceColor', [0,0.5,0]);
 hold off
 xlabel('\omega_2');
 ylabel('\omega_3');
@@ -188,13 +188,13 @@ plot_traj(fig9, inputs, p_u_given_cue)
 
 %% Simulations               
 tapas_hgf_binary_plotTraj(sim_ideal)
-sgtitle('ideal')
+sgtitle('Ideal')
+
+tapas_hgf_binary_plotTraj(sim_healthy)
+sgtitle('Virus healthy')
 
 tapas_hgf_binary_plotTraj(sim_anxious)
-sgtitle('virus anxious')
-
-tapas_hgf_binary_plotTraj(sim_healty)
-sgtitle('virus healthy') 
+sgtitle('Virus anxious') 
 %% Save (from postprocessing or manually set)
 if SAVE
     saveas(fig0, ['../img/' get(fig0,'Name') '.jpg']);

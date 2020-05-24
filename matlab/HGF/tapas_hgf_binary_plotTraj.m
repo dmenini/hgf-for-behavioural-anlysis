@@ -72,7 +72,7 @@ subplot(l,1,l);
 plot(ts, [tapas_sgm(r.p_prc.mu_0(2), 1); tapas_sgm(r.traj.mu(:,2), 1)], 'r', 'LineWidth', 2);
 hold all;
 plot(0, tapas_sgm(r.p_prc.mu_0(2), 1), 'or', 'LineWidth', 2); % prior
-plot(ts(2:end), r.u(:,1), '.', 'Color', [0 0.6 0]); % inputs
+plot(ts(2:end), r.u(:,1), '.', 'Color', [0.9100 0.4100 0.1700]); % inputs
 plot(ts(2:end), r.traj.wt(:,1), 'k') % implied learning rate 
 if (ploty == true) && ~isempty(find(strcmp(fieldnames(r),'y'))) && ~isempty(r.y)
     if ~isempty(find(strcmp(fieldnames(r),'c_sim'))) && strcmp(r.c_sim.obs_model,'tapas_beta_obs')
@@ -81,19 +81,19 @@ if (ploty == true) && ~isempty(find(strcmp(fieldnames(r),'y'))) && ~isempty(r.y)
         y = r.y(:,1) -0.5; y = 1.16 *y; y = y +0.5; % stretch
         if ~isempty(find(strcmp(fieldnames(r),'irr')))
             y(r.irr) = NaN; % weed out irregular responses
-            plot(ts(r.irr),  1.08.*ones([1 length(r.irr)]), 'x', 'Color', [1 0.7 0], 'Markersize', 11, 'LineWidth', 2); % irregular responses
-            plot(ts(r.irr), -0.08.*ones([1 length(r.irr)]), 'x', 'Color', [1 0.7 0], 'Markersize', 11, 'LineWidth', 2); % irregular responses
+            plot(ts(r.irr),  1.08.*ones([1 length(r.irr)]), 'x', 'Color', [0 0.6 0], 'Markersize', 11, 'LineWidth', 2); % irregular responses
+            plot(ts(r.irr), -0.08.*ones([1 length(r.irr)]), 'x', 'Color', [0 0.6 0], 'Markersize', 11, 'LineWidth', 2); % irregular responses
         end
     end
-    plot(ts(2:end), y, '.', 'Color', [1 0.7 0]); % responses
-    title(['Response y (orange), input u (green), learning rate (fine black), and posterior expectation of input s(\mu_2) ', ...
+    plot(ts(2:end), y, '.', 'Color',  [0 0.6 0]); % responses
+    title(['Response y (green), cues (orange), learning rate (fine black), and posterior expectation of input s(\mu_2) ', ...
            '(red) for \rho=', num2str(r.p_prc.rho(2:end)), ', \kappa=', ...
            num2str(r.p_prc.ka(2:end)), ', \omega=', num2str(r.p_prc.om(2:end))], ...
       'FontWeight', 'bold');
     ylabel('y, u, s(\mu_2)');
     axis([0 ts(end) -0.15 1.15]);
 else
-    title(['Input u (green), learning rate (fine black), and posterior expectation of input s(\mu_2) ', ...
+    title(['Cues (orange), learning rate (fine black), and posterior expectation of input s(\mu_2) ', ...
            '(red) for \rho=', num2str(r.p_prc.rho(2:end)), ', \kappa=', ...
            num2str(r.p_prc.ka(2:end)), ', \omega=', num2str(r.p_prc.om(2:end))], ...
       'FontWeight', 'bold');
