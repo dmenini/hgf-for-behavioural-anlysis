@@ -123,4 +123,5 @@ sgtitle('virus_healthy')
 
 %% Plots
 plot_all;
-
+%%
+sum(anxiety_vector)
