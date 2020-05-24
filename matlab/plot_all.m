@@ -33,14 +33,14 @@ scatter3(est_matrix_virus(:,1),est_matrix_virus(:,2),est_matrix_virus(:,3),70,C,
 xlabel('om_2');
 ylabel('om_3');
 zlabel('mu_3');
-title("Biscuits' parameter space", 'FontSize', 15)
+title("Sanitizer's parameter space", 'FontSize', 15)
 
 subplot(1,2,2)
 scatter3(est_matrix_biscuits(:,1),est_matrix_biscuits(:,2),est_matrix_biscuits(:,3),70,C,'filled','MarkerEdgeColor','k')
 xlabel('om_2');
 ylabel('om_3');
 zlabel('mu_3');
-title("Sanitizer's parameter space", 'FontSize', 15)
+title("Biscuits' parameter space", 'FontSize', 15)
 
 %% Biscuits
 fig2 = figure('Name','biscuit', 'OuterPosition', outerpos);
@@ -163,7 +163,7 @@ ylim(axes1,[0 1]);
 
 %% Input sequence
 fig10 = figure('Name', 'inputs');
-p_u_given_cue = [0.1 0.9 0.5 0.1 0.9];
+p_u_given_cue = [0.1 0.9 0.3 0.7 0.1 0.9];
 plot_traj(fig10, inputs, p_u_given_cue)
 
 %% Save (from postprocessing or manually set)
