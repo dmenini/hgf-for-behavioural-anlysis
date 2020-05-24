@@ -24,8 +24,8 @@ ylim(axes1,[0.45 0.9]);
 fig1 = figure('Name','sanit_biscuit', 'OuterPosition', outerpos);
 sgtitle('Parameter Space: Sanitizer vs. Biscuits', 'FontSize', 18, 'FontWeight', 'bold')
 
-subplot1 = subplot(1,2,1);
-view(subplot1,[-46.9568093417894 17.8584070779964]);
+subplot(1,2,1)
+view(subplot2,[-46.9568093425364 27.1669616516219]);
 C = zeros(numel(users), 3);
 for i = 1:numel(users)
     if users(i).anxiety_test_result == HEALTY
@@ -40,8 +40,8 @@ ylabel('\omega_3');
 zlabel('\mu_3');
 title("Sanitizer's parameter space", 'FontSize', 15)
 
-subplot1=subplot(1,2,2);
-view(subplot1,[-46.9568093417894 17.8584070779964]);
+subplot(1,2,2)
+view(subplot2,[-46.9568093425364 27.1669616516219]);
 scatter3(est_matrix_biscuits(:,1),est_matrix_biscuits(:,2),est_matrix_biscuits(:,3),SIZE,C,'filled','MarkerEdgeColor','k')
 xlabel('\omega_2');
 ylabel('\omega_3');
@@ -52,8 +52,8 @@ title("Biscuits' parameter space", 'FontSize', 15)
 fig2 = figure('Name','biscuit', 'OuterPosition', outerpos);
 sgtitle('Parameter Space: Biscuits', 'FontSize', 18, 'FontWeight', 'bold')
 
-subplot1=subplot(1,2,1);
-view(subplot1,[-46.9568093417894 17.8584070779964]);
+subplot(1,2,1)
+view(subplot2,[-46.9568093425364 27.1669616516219]);
 C = zeros(numel(users), 3);
 for i = 1:numel(users)
     if users(i).anxiety_test_result == HEALTY
@@ -68,8 +68,8 @@ ylabel('\omega_3');
 zlabel('\mu_3');
 title("Biscuits' ground truth", 'FontSize', 16)
 
-subplot1=subplot(1,2,2);
-view(subplot1,[-46.9568093417894 17.8584070779964]);
+subplot(1,2,2)
+view(subplot2,[-46.9568093425364 27.1669616516219]);
 C = zeros(numel(users), 3);
 for i = 1:numel(users)
     if idx_biscuits(i) == HEALTY
@@ -93,8 +93,8 @@ title("Biscuits' clusters", 'FontSize', 15)
 fig3 = figure('Name','sanitizer', 'OuterPosition', outerpos);
 sgtitle('Parameter Space: Sanitizer', 'FontSize', 18, 'FontWeight', 'bold')
 
-subplot1=subplot(1,2,1);
-view(subplot1,[-46.9568093417894 17.8584070779964]);
+subplot(1,2,1)
+view(subplot2,[-46.9568093425364 27.1669616516219]);
 C = zeros(numel(users), 3);
 for i = 1:numel(users)
     if users(i).anxiety_test_result == 1
@@ -109,8 +109,8 @@ ylabel('\omega_3');
 zlabel('\mu_3');
 title("Sanitizers' ground truth", 'FontSize', 15)
 
-subplot1 = subplot(1,2,2);
-view(subplot1,[-46.9568093417894 17.8584070779964]);
+subplot(1,2,2)
+
 C = zeros(numel(users), 3);
 for i = 1:numel(users)
     if idx_virus(i) == HEALTY
