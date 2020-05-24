@@ -294,7 +294,7 @@ function FBEventPush(event) {
         
         FBEnableButton = false
         window.setTimeout(function(){
-            window.alert("At supermarket Effelunga you find a full shelves, as you see in the picture.")
+            window.alert("At supermarket Effelunga you find full shelves, as you see in the picture.")
             window.alert("If you think to find biscuits also in the next supermarket, press the blue button. Otherwise, press the yellow button.")
              FBEnableButton = true
         },3000);
