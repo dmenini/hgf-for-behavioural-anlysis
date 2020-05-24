@@ -1,42 +1,70 @@
 // TEST 2
 
+// var inputs = [
+// "Provo un senso diffuso di inquietudine",
+// "Se posso evito di uscire di casa",
+// "Mi sento turbato facilmente ed ho paura",
+// "Temo che da un momento all'altro possa accadermi qualche disgrazia",
+// "Mi sento a pezzi",
+// "Mi tremano le gambe e le braccia",
+// "Soffro di emicranie, dolori al collo e mal di schiena",
+// "Mi sento debole e mi stanco con facilit&agrave",
+// "Mi sento irrequieto e non riesco a stare seduto",
+// "Sento il cuore battere forte",
+// "Soffro di vertigini",
+// "Mi sento svenire",
+// "Faccio fatica a respirare",
+// "Sento intorpidimento e formicolio nelle dita",
+// "Soffro di mal di stomaco e di cattiva digestione",
+// "Devo spesso urinare",
+// "Ho le mani fredde e sudate",
+// "Arrosisco facilmente",
+// "Faccio fatica ad addormentarmi e ho un sonno agitato",
+// "Ho degli incubi"]
 
 var inputs = [
-"Provo un senso diffuso di inquietudine",
-"Se posso evito di uscire di casa",
-"Mi sento turbato facilmente ed ho paura",
-"Temo che da un momento all'altro possa accadermi qualche disgrazia",
-"Mi sento a pezzi",
-"Mi tremano le gambe e le braccia",
-"Soffro di emicranie, dolori al collo e mal di schiena",
-"Mi sento debole e mi stanco con facilit&agrave",
-"Mi sento irrequieto e non riesco a stare seduto",
-"Sento il cuore battere forte",
-"Soffro di vertigini",
-"Mi sento svenire",
-"Faccio fatica a respirare",
-"Sento intorpidimento e formicolio nelle dita",
-"Soffro di mal di stomaco e di cattiva digestione",
-"Devo spesso urinare",
-"Ho le mani fredde e sudate",
-"Arrosisco facilmente",
-"Faccio fatica ad addormentarmi e ho un sonno agitato",
-"Ho degli incubi"]
+"I feel a diffuse sense of apprehension",
+"If I can, I avoid leaving home",
+"I easily get upset and I am scared",
+"I am afraid that some accident may suddently happen to me at any time",
+"I feel broken",
+"My legs and arms tremble",
+"I have migraines, neck and back pain ",
+"I feel weak and I get easily tired",
+"I feel agitated and I can't stay still",
+"I feel that my heart beats faster",
+"I suffer from vertigo",
+"I feel faint",
+"I struggle to breath",
+"I feel numbness and tingling in the fingers",
+"I have stomachache",
+"I often need to urinate",
+"My hands are cold and sweaty",
+"I blush often",
+"I struggle to fall asleep and I have a restless sleep",
+"I have nightmares"]
 
-var score_message = ["Ansia? No grazie\nDecisamente l'ansia non \u00e8 un tuo problema. Hai un'alta capacit\u00e0 di controllo delle emozioni e molto difficilmente permetti agli eventi esterni di minacciare la tua imperturbabilit\u00e0. Sei la persona a cui chiunque affiderebbe la gestione del proprio portafoglio azionario, il rigore decisivo nella finale del campionato del mondo di calcio e perfino la guida dell'intera nazione in una situazione di emergenza. Attenzione per\u00f2. Se il tuo punteggio \u00e8 molto vicino al livello inferiore della scala (< = 21 punti) rischi di apparire una persona fredda e compassata, poco incline ad ogni tipo di slancio emotivo e con qualche difficolt\u00e0 ad avvertire ed esprimere anche le emozioni positive.",
-"Alcuni piccoli segnali di ansia. Non \u00e8 il caso di preoccuparsi.\nAlcuni piccoli segnali d'ansia, verosimilmente episodici e connessi a particolari situazioni di stress, personale o ambientale.Ricorda per\u00f2 che l'ansia non \u00e8 sempre e comunque da valutare negativamente. La capacit\u00e0 di sperimentare e contenere un moderato livello di ansia \u00e8 un importante e prezioso fattore di adattamento in grado di migliorare le proprie prestazioni in numerose circostanze, dall'apprendimento all'esecuzioni di compiti specifici. Nelle relazioni sociali pu\u00f2 inoltre rivelarsi indice di interesse, partecipazione, coinvolgimento umano e personale.",
-"Ansia di livello medio.\nTieni sotto controllo le fonti di stress. Il punteggio rivela un livello medio di ansia. La reazione ansiosa non \u00e8 per te un tipo di reazione esclusiva e ricorrente, ma occorre valutare quali fra le circostanze attuali della tua vita hanno abbassato la tua soglia di allarme e ti inducono a reagire con una certa apprensione agli eventi del tuo mondo interiore e della realt\u00e0 esterna. Sei ancora in grado di dominare le tue reazioni ansiose, che non compromettono in modo particolarmente fastidioso la qualit\u00e0 della tua vita, ma avverti il pericolo di un escalation. Tieni sotto controllo la situazione.",
-"Ansia di livello medio-alto. Soglia di Attenzione.\nIl punteggio rivela un livello medio-alto di ansia. La reazione ansiosa non \u00e8 ancora diffusa e generalizzata ma \u00e8 piuttosto innescata da situazioni specifiche, in grado di generare in te uno stato di disagio che talvolta consideri eccessivo. Probabilmente in questo periodo avverti in preoccupante crescita la quantit\u00e0 e la variet\u00e0 degli stimoli in grado di metterti in apprensione, e non sempre riesci ad impedire che la tua tensione emotiva si somatizzi, riversandosi sul tuo corpo e generando stati di malessere e disagio anche di carattere fisico.",
-"Che cosa sta accadendo nella tua vita? Il test ha rilevato un livello alto di ansia.\nIl punteggio rivela un livello alto di ansia. La reazione ansiosa tende a manifestarsi in modo diffuso e generalizzato e rischia di divenire per te una modalit\u00e0 quasi esclusiva di reazione agli stimoli. Il senso di armonia con te stesso, alcune tue potenzialit\u00e0 professionali e la tua vita sociale e sentimentale rischiano di venire parzialmente compromessi da questo stato pervasivo e fastidioso di tensione emotiva. Anche il tuo corpo viene coinvolto in questo generale stato di apprensione e non sono infrequenti manifestazioni di malessere e somatizzazioni a carico di alcuni organi. Mal di testa, disturbi all'apparato gastrointestinale, difficolt\u00e0 respiratorie, manifestazioni cutanee e dolori di varia natura possono accompagnare questo generale stato di malessere. E' forse opportuno prendere in considerazione la possibilit\u00e0 di inziare una psicoterapia."]
 
+
+// var score_message = ["Ansia? No grazie\nDecisamente l'ansia non \u00e8 un tuo problema. Hai un'alta capacit\u00e0 di controllo delle emozioni e molto difficilmente permetti agli eventi esterni di minacciare la tua imperturbabilit\u00e0. Sei la persona a cui chiunque affiderebbe la gestione del proprio portafoglio azionario, il rigore decisivo nella finale del campionato del mondo di calcio e perfino la guida dell'intera nazione in una situazione di emergenza. Attenzione per\u00f2. Se il tuo punteggio \u00e8 molto vicino al livello inferiore della scala (< = 21 punti) rischi di apparire una persona fredda e compassata, poco incline ad ogni tipo di slancio emotivo e con qualche difficolt\u00e0 ad avvertire ed esprimere anche le emozioni positive.",
+// "Alcuni piccoli segnali di ansia. Non \u00e8 il caso di preoccuparsi.\nAlcuni piccoli segnali d'ansia, verosimilmente episodici e connessi a particolari situazioni di stress, personale o ambientale.Ricorda per\u00f2 che l'ansia non \u00e8 sempre e comunque da valutare negativamente. La capacit\u00e0 di sperimentare e contenere un moderato livello di ansia \u00e8 un importante e prezioso fattore di adattamento in grado di migliorare le proprie prestazioni in numerose circostanze, dall'apprendimento all'esecuzioni di compiti specifici. Nelle relazioni sociali pu\u00f2 inoltre rivelarsi indice di interesse, partecipazione, coinvolgimento umano e personale.",
+// "Ansia di livello medio.\nTieni sotto controllo le fonti di stress. Il punteggio rivela un livello medio di ansia. La reazione ansiosa non \u00e8 per te un tipo di reazione esclusiva e ricorrente, ma occorre valutare quali fra le circostanze attuali della tua vita hanno abbassato la tua soglia di allarme e ti inducono a reagire con una certa apprensione agli eventi del tuo mondo interiore e della realt\u00e0 esterna. Sei ancora in grado di dominare le tue reazioni ansiose, che non compromettono in modo particolarmente fastidioso la qualit\u00e0 della tua vita, ma avverti il pericolo di un escalation. Tieni sotto controllo la situazione.",
+// "Ansia di livello medio-alto. Soglia di Attenzione.\nIl punteggio rivela un livello medio-alto di ansia. La reazione ansiosa non \u00e8 ancora diffusa e generalizzata ma \u00e8 piuttosto innescata da situazioni specifiche, in grado di generare in te uno stato di disagio che talvolta consideri eccessivo. Probabilmente in questo periodo avverti in preoccupante crescita la quantit\u00e0 e la variet\u00e0 degli stimoli in grado di metterti in apprensione, e non sempre riesci ad impedire che la tua tensione emotiva si somatizzi, riversandosi sul tuo corpo e generando stati di malessere e disagio anche di carattere fisico.",
+// "Che cosa sta accadendo nella tua vita? Il test ha rilevato un livello alto di ansia.\nIl punteggio rivela un livello alto di ansia. La reazione ansiosa tende a manifestarsi in modo diffuso e generalizzato e rischia di divenire per te una modalit\u00e0 quasi esclusiva di reazione agli stimoli. Il senso di armonia con te stesso, alcune tue potenzialit\u00e0 professionali e la tua vita sociale e sentimentale rischiano di venire parzialmente compromessi da questo stato pervasivo e fastidioso di tensione emotiva. Anche il tuo corpo viene coinvolto in questo generale stato di apprensione e non sono infrequenti manifestazioni di malessere e somatizzazioni a carico di alcuni organi. Mal di testa, disturbi all'apparato gastrointestinale, difficolt\u00e0 respiratorie, manifestazioni cutanee e dolori di varia natura possono accompagnare questo generale stato di malessere. E' forse opportuno prendere in considerazione la possibilit\u00e0 di inziare una psicoterapia."]
+
+var score_message = [
+"Anxiety? No thanks."
+"Small signals of anxiety. It is not the case to worry about it."
+"Medium level of anxiety. Keep under control the sources of stress."
+"Medium-high level of anxiety. Attention span."
+"What is happening in your life? The test has revealed an high level of anxiety."
+
+]
 
 //var inputs =  [1,1,0,0,1,1,0,0,0,0,0,1,0,1,1,0,1,0,0,0,1,0,1,1,1,0,0,0,0,1,1,0,1,1,0,0,1,1,1,1,1,0,1,1,0,1,1,1,1,0,0,0,0,1,1,1,1,0,1,0,1,0,1,1,0,1,1,0,0,0,1,1,1,0,0,1,0,1,1,1,0,1,1,1,1,0,1,0,1,0,0,0,1,1,0,1,0,1,0,1]
 //var results = [0,0,1,1,0,1,1,1,1,1,1,0,1,1,0,0,1,0,0,0,1,1,1,1,0,1,1,1,1,0,1,0,1,0,0,1,0,0,0,0,1,1,0,1,0,1,1,0,1,1,0,1,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,1,1,1,0,0,1,0,0,0,1,0,0,1,0,0,1,1,1,0,0,1,0,1,1,1,1]
 
 
-
-
-var path = 'img/tits/'
 var next_page = 'homet4.html'
 
 var title = "<center>How often...</center>"
@@ -49,14 +77,14 @@ function load() {
     
     var divs = document.getElementById("actions-div-top");
     var string = ''
-    string += '<div class="b3-action" style="cursor: pointer">Spesso</div>'
-    string += '<div class="b4-action"  style="cursor: pointer">Quasi Sempre</div>'
+    string += '<div class="b3-action" style="cursor: pointer">Often</div>'
+    string += '<div class="b4-action"  style="cursor: pointer">Almost Always</div>'
     divs.innerHTML = string;
     
     var divs = document.getElementById("actions-div-bottom");
     var string = ''
-    string += '<div class="b1-action"  style="cursor: pointer">Mai</div>'
-    string += '<div class="b2-action"  style="cursor: pointer">Qualche Volta</div>'
+    string += '<div class="b1-action"  style="cursor: pointer">Never</div>'
+    string += '<div class="b2-action"  style="cursor: pointer">Sometimes</div>'
     divs.innerHTML = string;
     
     

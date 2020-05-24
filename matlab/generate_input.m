@@ -45,7 +45,7 @@ while run
     for i = 1:numel(cues)
         if cues(i) == 0 
             cues(i) = u(i);
-        elseif u(i) == 1
+        elseif cues(i) == 1
             cues(i) = 1 - u(i);
         end
     end
@@ -54,8 +54,7 @@ while run
     end
 end
 
-%% Simulate beliefs and responses
-
+% Simulate beliefs and responses
 ideal_model = tapas_fitModel([],...
         u,...
         'tapas_hgf_binary_config_',...

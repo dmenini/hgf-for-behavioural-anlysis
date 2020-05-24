@@ -78,7 +78,6 @@ console.log(results)
 
 var path = 'img/cookies/'
 var next_page = 'homet2.html'
-//var path = 'tits/'
 
 var pics = [path+"first_in.jpg", path+"second_in.jpg", path+"question.jpg"]
 var choices = [path+"left.png",path+"mid.png",path+"right.png"]

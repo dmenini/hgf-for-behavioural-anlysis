@@ -63,7 +63,6 @@ console.log(results)
 
 var path = 'img/cookies/'
 var next_page = 'test1.html'
-//var path = 'tits/'
 
 var pics = [path+"first_in.jpg", path+"second_in.jpg", path+"question.jpg"]
 var choices = [path+"left.png",path+"mid.png",path+"right.png"]
@@ -295,8 +294,8 @@ function FBEventPush(event) {
         
         FBEnableButton = false
         window.setTimeout(function(){
-            window.alert("Al supermercato Effelunga trovi uno scaffale pieno, come vedi nella foto.")
-            window.alert("Se pensi di trovare i biscotti anche al prossimo supermercato, premi il tasto blu, altrimenti premi il tasto giallo")
+            window.alert("At supermarket Effelunga you find a full shelves, as you see in the picture.")
+            window.alert("If you think to find biscuits also in the next supermarket, press the blue button. Otherwise, press the yellow button.")
              FBEnableButton = true
         },3000);
         
@@ -345,18 +344,18 @@ function FBEventPush(event) {
             
             if(currentPos==2)
             window.setTimeout(function(){
-                window.alert("Siamo tornati al supermercato Effelunga, in questo caso gli scaffali sono vuoti.")
-                window.alert("Se pensi di trovare i biscotti nel prossimo supermercato, premi il tasto blu, altrimenti premi il tasto giallo.")
+                window.alert("We are back at Effelunga. Now the shelves are empty.")
+                window.alert("If you think to find biscuits in the next supermarket, press the blue button. Otherwise, press the yellow button.")
                FBEnableButton = true
             },2000);
             
             if(currentPos==4) window.setTimeout(function(){
-                window.alert("La logica che regola le forniture dei due supermercati cambia nel corso del tempo...")
+                window.alert("The probability which controls the supermarkets' supplies changes over time...")
                 FBEnableButton = true
             },2000);
             
             if(currentPos==6) window.setTimeout(function(){
-                window.alert("Fai attenzione, il test \u00e8 temporizzato. Se non rispondi in tempo, in seguito ti verr\u00e0 comunque mostrata la risposta esatta.")
+                window.alert("Attention please, the time is limited. If you don't answer in time, you will still see the right answer.")
                 FBEnableButton = false
                 colobarHandle = window.setTimeout(function(){FBUpdateBarReal();},BAR_UPDATE_TIME);
                 timeoutHandle = window.setTimeout(function(){FBSkip();},3000);
@@ -381,9 +380,9 @@ function FBEventPush(event) {
                 action = user_inputs[0]
                 truth = 1
                 
-                if(action==truth) window.setTimeout(function(){window.alert("Esatto! Al supermercato Sinply ci sono i biscotti");     timeoutHandle = FBGhost()},1000);
+                if(action==truth) window.setTimeout(function(){window.alert("Correct! Supermarket Sinply has biscuits");     timeoutHandle = FBGhost()},1000);
                 
-                else window.setTimeout(function(){window.alert("Sbagliato! Al supermercato Sinply ci sono i biscotti");     timeoutHandle = FBGhost()},1000);
+                else window.setTimeout(function(){window.alert("Wrong! Supermarket Sinply has biscuits");     timeoutHandle = FBGhost()},1000);
                 
             
                 
@@ -394,9 +393,9 @@ function FBEventPush(event) {
                 action = user_inputs[1]
                 truth = 0
                 
-                if(action==truth) window.setTimeout(function(){window.alert("Esatto! Al supermercato Sinply non ci sono i biscotti");     timeoutHandle = FBGhost()},1000);
+                if(action==truth) window.setTimeout(function(){window.alert("Correct! Supermarket Sinply doesn't have biscuits");     timeoutHandle = FBGhost()},1000);
                 
-                else window.setTimeout(function(){window.alert("Sbagliato! Al supermercato Sinply non ci sono i biscotti");     timeoutHandle = FBGhost()},1000);
+                else window.setTimeout(function(){window.alert("Wrong! Supermarket Sinply doesn't have biscuits");     timeoutHandle = FBGhost()},1000);
 
                 
             }
@@ -405,9 +404,9 @@ function FBEventPush(event) {
            action = user_inputs[2]
            truth = 1
            
-           if(action==truth) window.setTimeout(function(){window.alert("Esatto! Al supermercato Sinply ci sono i biscotti");     timeoutHandle = FBGhost()},1000);
+           if(action==truth) window.setTimeout(function(){window.alert("Correct! Supermaret Sinply has biscuits");     timeoutHandle = FBGhost()},1000);
            
-           else window.setTimeout(function(){window.alert("Sbagliato! Al supermercato Sinply ci sono i biscotti");     timeoutHandle = FBGhost()},1000);
+           else window.setTimeout(function(){window.alert("Wrong! Supermarket Sinply has biscuits");     timeoutHandle = FBGhost()},1000);
 
             }
             
@@ -431,7 +430,7 @@ function FBEventPush(event) {
         
 window.setTimeout(function(){
 
-    if (confirm("Hai completato il tutorial!\nSei pronto ad iniziare il test?")) {
+    if (confirm("The tutorial is completed!\nAre you ready to begin the test?")) {
                             FBDestroy()
     } else {
         window.location = "test0.html"
