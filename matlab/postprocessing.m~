@@ -1,7 +1,7 @@
 clear; clc; close all;
 rng(9876);
 addpath 'HGF'
-SAVE = 1;
+SAVE = 0;
 
 %% Intialization
 database_file = '../interface/SurveyUserActions_result_tests.json';
@@ -117,10 +117,9 @@ sim_healty = tapas_simModel(inputs.cues,...
 tapas_hgf_binary_plotTraj(sim_ideal)
 sgtitle('ideal')
 tapas_hgf_binary_plotTraj(sim_anxious)
-sgtitle('virus_anxious')
+sgtitle('virus anxious')
 tapas_hgf_binary_plotTraj(sim_healty)
-sgtitle('virus_healthy') 
+sgtitle('virus healthy') 
 
 %% Plots
 plot_all;
-

@@ -7,8 +7,8 @@ RED = [0.85, 0.325, 0.098];
 BLUE = [0.301, 0.745, 0.933];
 GREEN = [0,0.5,0];
 
-C_SIZE = 120;
-SIZE = 70;
+C_SIZE = 150;
+SIZE = 90;
 
 %% K-Means Score based on ground truth
 fig0 = figure('Name','score');

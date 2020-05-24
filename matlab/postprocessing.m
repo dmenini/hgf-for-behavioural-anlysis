@@ -117,11 +117,9 @@ sim_healty = tapas_simModel(inputs.cues,...
 tapas_hgf_binary_plotTraj(sim_ideal)
 sgtitle('ideal')
 tapas_hgf_binary_plotTraj(sim_anxious)
-sgtitle('virus_anxious')
+sgtitle('virus anxious')
 tapas_hgf_binary_plotTraj(sim_healty)
-sgtitle('virus_healthy') 
+sgtitle('virus healthy') 
 
 %% Plots
 plot_all;
-%%
-sum(anxiety_vector)
