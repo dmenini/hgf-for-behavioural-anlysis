@@ -9,7 +9,7 @@ GREEN = [0,0.5,0];
 
 C_SIZE = 150;
 SIZE = 90;
-
+SAVE=1;
 %% K-Means Score based on ground truth
 fig0 = figure('Name','score');
 axes1 = axes('Parent',fig0);
@@ -38,7 +38,7 @@ scatter3(est_matrix_virus(:,1),est_matrix_virus(:,2),est_matrix_virus(:,3),SIZE,
 xlabel('\omega_2');
 ylabel('\omega_3');
 zlabel('\mu_3');
-title("Sanitizer's parameter space", 'FontSize', 15)
+title("Sanitizer's parameter space", 'FontSize', 18)
 
 subplot1=subplot(1,2,2);
 view(subplot1,[-46.9568093417894 17.8584070779964]);
@@ -46,7 +46,7 @@ scatter3(est_matrix_biscuits(:,1),est_matrix_biscuits(:,2),est_matrix_biscuits(:
 xlabel('\omega_2');
 ylabel('\omega_3');
 zlabel('\mu_3');
-title("Biscuits' parameter space", 'FontSize', 15)
+title("Biscuits' parameter space", 'FontSize', 18)
 
 %% Biscuits
 fig2 = figure('Name','biscuit', 'OuterPosition', outerpos);
@@ -66,7 +66,7 @@ scatter3(est_matrix_biscuits(:,1),est_matrix_biscuits(:,2),est_matrix_biscuits(:
 xlabel('\omega_2');
 ylabel('\omega_3');
 zlabel('\mu_3');
-title("Biscuits' ground truth", 'FontSize', 16)
+title("Biscuits' ground truth", 'FontSize', 18)
 
 subplot1=subplot(1,2,2);
 view(subplot1,[-46.9568093417894 17.8584070779964]);
@@ -87,7 +87,7 @@ hold off
 xlabel('\omega_2');
 ylabel('\omega_3');
 zlabel('\mu_3');
-title("Biscuits' clusters", 'FontSize', 15)
+title("Biscuits' clusters", 'FontSize', 18)
 
 %% Sanitizer
 fig3 = figure('Name','sanitizer', 'OuterPosition', outerpos);
@@ -107,7 +107,7 @@ scatter3(est_matrix_virus(:,1),est_matrix_virus(:,2),est_matrix_virus(:,3),SIZE,
 xlabel('\omega_2');
 ylabel('\omega_3');
 zlabel('\mu_3');
-title("Sanitizers' ground truth", 'FontSize', 15)
+title("Sanitizers' ground truth", 'FontSize', 18)
 
 subplot1 = subplot(1,2,2);
 view(subplot1,[-46.9568093417894 17.8584070779964]);
@@ -128,7 +128,7 @@ hold off
 xlabel('\omega_2');
 ylabel('\omega_3');
 zlabel('\mu_3');
-title("Sanitizers' clusters", 'FontSize', 15, 'FontWeight', 'bold')
+title("Sanitizers' clusters", 'FontSize', 18, 'FontWeight', 'bold')
 
 %% Parameter correlation
 fig4 = figure('Name','par_corr_bisc_h');
@@ -197,6 +197,6 @@ if SAVE
     saveas(fig6, ['../img/' get(fig6,'Name') '.jpg']);
     saveas(fig7, ['../img/' get(fig7,'Name') '.jpg']);
     % saveas(fig8, ['../img/' get(fig8,'Name') '.jpg']);
-    saveas(fig9, ['../img/' get(fig7,'Name') '.jpg']);
+    saveas(fig9, ['../img/' get(fig9,'Name') '.jpg']);
     close all
 end
