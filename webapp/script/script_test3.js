@@ -23,26 +23,26 @@
 // "Ho degli incubi"]
 
 var inputs = [
-"I feel a diffuse sense of apprehension",
-"If I can, I avoid leaving home",
-"I easily get upset and I am scared",
-"I am afraid that some accident may suddently happen to me at any time",
-"I feel broken",
-"My legs and arms tremble",
-"I have migraines, neck and back pain ",
-"I feel weak and I get easily tired",
-"I feel agitated and I can't stay still",
-"I feel that my heart beats faster",
-"I suffer from vertigo",
-"I feel faint",
-"I struggle to breath",
-"I feel numbness and tingling in the fingers",
-"I have stomachache",
-"I often need to urinate",
-"My hands are cold and sweaty",
-"I blush often",
-"I struggle to fall asleep and I have a restless sleep",
-"I have nightmares"]
+"I don't feel calm",
+"I don't feel secure",
+"I am tense",
+"I am regretful",
+"I don't feel at ease",
+"I feel upset",
+"I am presently worrying about possible misfortunes",
+"I don't feel rested",
+"I feel anxious",
+"I don't feel comfortable",
+"I don't feel self-confident",
+"I feel nervous",
+"I am jittery",
+'I feel "high strung"',
+"I am not relaxed",
+"I don't feel content",
+"I am worried",
+"I feel over-excited and rattled",
+"I don't feel joyful",
+"I don't feel pleasant" ]
 
 
 
@@ -83,7 +83,7 @@ function load() {
     
     var divs = document.getElementById("actions-div-bottom");
     var string = ''
-    string += '<div class="b1-action"  style="cursor: pointer">Never</div>'
+    string += '<div class="b1-action"  style="cursor: pointer">Almost Never</div>'
     string += '<div class="b2-action"  style="cursor: pointer">Sometimes</div>'
     divs.innerHTML = string;
     
