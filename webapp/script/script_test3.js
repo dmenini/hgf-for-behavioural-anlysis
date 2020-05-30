@@ -77,14 +77,14 @@ function load() {
     
     var divs = document.getElementById("actions-div-top");
     var string = ''
-    string += '<div class="b3-action" style="cursor: pointer">Often</div>'
-    string += '<div class="b4-action"  style="cursor: pointer">Almost Always</div>'
+    string += '<div class="b3-action" style="cursor: pointer">Moderately So</div>'
+    string += '<div class="b4-action"  style="cursor: pointer">Very Much So</div>'
     divs.innerHTML = string;
     
     var divs = document.getElementById("actions-div-bottom");
     var string = ''
-    string += '<div class="b1-action"  style="cursor: pointer">Almost Never</div>'
-    string += '<div class="b2-action"  style="cursor: pointer">Sometimes</div>'
+    string += '<div class="b1-action"  style="cursor: pointer">Not At All</div>'
+    string += '<div class="b2-action"  style="cursor: pointer">Somewhat</div>'
     divs.innerHTML = string;
     
     
